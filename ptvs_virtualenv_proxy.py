@@ -52,7 +52,7 @@ if ptvsd_secret:
         except: 
             log('ptvsd.enable_attach failed\n')
     except ImportError:
-        log('error importing ptvsd.\n');
+        log('error importing ptvsd.\n')
 
 def get_wsgi_handler(handler_name):
     if not handler_name:
