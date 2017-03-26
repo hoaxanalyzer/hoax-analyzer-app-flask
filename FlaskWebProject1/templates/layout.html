@@ -1,91 +1,46 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-      
-    <title>Hoax Analyzer</title>
-
-    <!-- for Google -->
-    <meta name="description" content="Worry about hoax information? Check here." />
-    <meta name="keywords" content="hoax,website,factchecker,facebook,twitter,whatsapp,social media" />
-    <meta name="author" content="cimol-team" />
-    <meta name="application-name" content="hoax-analyzer" />
-
-    <!-- for Twitter -->          
-    <meta name="twitter:card" content="Worry about hoax information? Check here." />
-    <meta name="twitter:title" content="Hoax Analyzer" />
-    <meta name="twitter:description" content="Website to check the hoax information" />
-    <meta name="twitter:image" content="https://www.dropbox.com/s/grevfng2ugpj2kn/Hoax%20Analyzer.png?dl=0" />
-    <meta name="twitter:domain" content="https://hoax-analyzer.azurewebsites.net/">
-
-    <!-- for Facebook -->    
-    <meta property="og:url" content="http://hoax-analyzer.azurewebsites.net/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Hoax Analyzer" />
-    <meta property="og:description" content="Worry about hoax information? Check here." />
-    <meta property="og:image" content="https://www.dropbox.com/s/grevfng2ugpj2kn/Hoax%20Analyzer.png?dl=0" />
-
-    <link href="/static/content/bootstrap.min.css" rel="stylesheet">
-    <link href="/static/content/loading.css" rel="stylesheet">
-    <link href="/static/content/style.css" rel="stylesheet">
-
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="57x57" href="/static/img/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/static/img/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/static/img/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/static/img/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/static/img/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/static/img/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/static/img/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/static/img/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/static/img/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/static/img/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/static/img/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicon-16x16.png">
-    <link rel="manifest" href="/static/img/manifest.json">
-
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/static/img/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="/static/scripts/ga.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - My Flask Application</title>
+    <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
+    <script src="/static/scripts/modernizr-2.6.2.js"></script>
 </head>
 
 <body>
-    <div id="fb-root"></div>
-    <script>
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=183545445477116";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-    </script>
-
-    <div class="page-layer">
+    <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
-            <div class="row" id="main-content" style="/*margin-top: 6em*/ margin-top:1.5em">
-                <center>
-                    <div class="col-md-offset-2 col-md-8 col-xs-offset-1 col-xs-10">
-                        <div id="header">
-                            <h1 id="web-title"><strong>Hoax Analyzer</strong></h1>
-                            <p id="web-slogan">Worry about hoax information? Check here.</p>
-                        </div>
-                        <br/>  
-                        {% block content %}{% endblock %}
-                    </div>
-                </center>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">Application name</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                </ul>
             </div>
         </div>
     </div>
 
-    <script src="/static/scripts/jquery.min.js"></script>
-    <script src="/static/scripts/bootstrap.min.js"></script>
+    <div class="container body-content">
+        {% block content %}{% endblock %}
+        <hr />
+        <footer>
+            <p>&copy; {{ year }} - My Flask Application</p>
+        </footer>
+    </div>
+
+    <script src="/static/scripts/jquery-1.10.2.js"></script>
+    <script src="/static/scripts/bootstrap.js"></script>
+    <script src="/static/scripts/respond.js"></script>
     {% block scripts %}{% endblock %}
 
 </body>
