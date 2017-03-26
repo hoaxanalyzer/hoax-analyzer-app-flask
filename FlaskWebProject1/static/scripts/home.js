@@ -24,7 +24,7 @@ function toStepTwo() {
 function callAnalyzerAPI(q) {
   $.ajax({
     type: "POST",
-    url: "https://sh.lelah.ga/analyze",
+    url: "https://ah.lelah.ga/analyze",
     data: JSON.stringify({query: q}),
     contentType: "application/json; charset=utf-8",
     dataType: "json",
