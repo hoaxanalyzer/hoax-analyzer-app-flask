@@ -12,6 +12,7 @@ def home():
     """Renders the home page."""
     return render_template('index.html')
 
+
 @app.route('/results/<id>')
 def result(id):
     """Renders the result page."""
