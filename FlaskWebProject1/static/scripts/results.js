@@ -85,14 +85,7 @@ $('.twitter-popup').click(function(event) {
 });
 
 $('.fb-popup').click(function(event) {
-  var result_url;
-    
-  if(!window.location.origin) {
-    result_url = window.location.protocol + "//" + window.location.hostname + window.location.pathname;
-  } else {
-    result_url = window.location.origin + window.location.pathname;
-  }
-
+  var result_url = window.location.href;
   var width  = 575,
   height = 400,
   left   = ($(window).width()  - width)  / 2,
