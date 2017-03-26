@@ -32,7 +32,7 @@ def result(id):
             conclusion = str(round(100*(fact_p/totalp),2))  + "% searches said it's"
         return render_template('result.html', result=result, conclusion=conclusion)
     except Exception as e:
-        return e
+        return render_template('result.html', conclusion = json.dumps(e))
 
 @app.route('/feedback/result', methods=['POST'])
 def feedbackResult():
