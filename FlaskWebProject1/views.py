@@ -19,6 +19,7 @@ def result(id):
     headers = {'Content-Type':'application/json'}
     data = {'id':id}
     r = requests.post(url, data=json.dumps(data), headers=headers)
+    return json.dumps(r)
     result =  r.json()
     fact_p = result["scores"][1]
     hoax_p = result["scores"][2]
@@ -30,7 +31,7 @@ def result(id):
         conclusion = str(round(100*(hoax_p/totalp),2)) + "% searches said it's"
     elif conclude == 'fact' and fact_p!=0:
         conclusion = str(round(100*(fact_p/totalp),2))  + "% searches said it's"
-    return json.dumps(result)
+    # return render_template('result.html', result=result, conclusion=conclusion)
 
 @app.route('/feedback/result', methods=['POST'])
 def feedbackResult():
