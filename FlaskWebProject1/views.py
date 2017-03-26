@@ -17,19 +17,22 @@ def result(id):
     url = 'https://ah.lelah.ga/result'
     headers = {'Content-Type':'application/json'}
     data = {'id':id}
-    r = requests.post(url, data=json.dumps(data), headers=headers)
-    result =  r.json()
-    fact_p = result["scores"][1]
-    hoax_p = result["scores"][2]
-    conclude = result["conclusion"]
-    unkn_p = result["scores"][3]
-    totalp = fact_p + hoax_p + unkn_p
-    conclusion = "We cannot conclude anything. It's"
-    if conclude == 'hoax':
-        conclusion = str(round(100*(hoax_p/totalp),2)) + "% searches said it's"
-    elif conclude == 'fact' and fact_p!=0:
-        conclusion = str(round(100*(fact_p/totalp),2))  + "% searches said it's"
-    return render_template('result.html', result=result, conclusion=conclusion)
+    try:
+        r = requests.post(url, data=json.dumps(data), headers=headers)
+        result =  r.json()
+        fact_p = result["scores"][1]
+        hoax_p = result["scores"][2]
+        conclude = result["conclusion"]
+        unkn_p = result["scores"][3]
+        totalp = fact_p + hoax_p + unkn_p
+        conclusion = "We cannot conclude anything. It's"
+        if conclude == 'hoax':
+            conclusion = str(round(100*(hoax_p/totalp),2)) + "% searches said it's"
+        elif conclude == 'fact' and fact_p!=0:
+            conclusion = str(round(100*(fact_p/totalp),2))  + "% searches said it's"
+        return render_template('result.html', result=result, conclusion=conclusion)
+    except Exception as e:
+        return json.dumps(e)
 
 @app.route('/feedback/result', methods=['POST'])
 def feedbackResult():
