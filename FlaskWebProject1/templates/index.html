@@ -1,33 +1,46 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
-<div class="jumbotron">
-    <h1>Flask</h1>
-    <p class="lead">Flask is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://flask.pocoo.org/" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+<div id="hoax-analyzer" class="step-one input-form" style="display: block">
+    <textarea id="hoax-analyzer" class="form-control textarea searchinput" name="textarea-field" rows="2" placeholder="Type text (min. 2 words) here"></textarea>
+    <button id="hoax-analyzer" name="analyze-button" class="btn btn-default" type="button" onclick="toStepTwo()">Analyze</button>
 </div>
-
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            Flask gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://flask.pocoo.org/docs/">Learn more &raquo;</a></p>
+<div id="hoax-analyzer" class="step-two input-form" style="display: none">
+    <br/>
+    <div class="cssload-container">
+        <div class="cssload-whirlpool"></div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>The Python Package Index is a repository of software for the Python programming language.</p>
-        <p><a class="btn btn-default" href="https://pypi.python.org/pypi">Learn more &raquo;</a></p>
+    <div class="more-info">
+        <p><b>Did you know?</b> <span id="rotate">Flat earth is a hoax</span></p>
     </div>
-    <div class="col-md-4">
-        <h2>Microsoft Azure</h2>
-        <p>You can easily publish to Microsoft Azure using Python Tools for Visual Studio. Find out how you can host your application using a free trial today.</p>
-        <p><a class="btn btn-default" href="http://azure.microsoft.com">Learn more &raquo;</a></p>
-    </div>
+    <ul style="display:none">
+        <li>Vaccine doesn't causing autism</li>
+        <li>Linux and macOS are not immune to malware</li>
+        <li>Entering your PIN on ATM doesn't notify the police</li>
+        <li>Don't click "Who viewed your profile" in Facebook, it's a scam</li>
+        <li>Honey is the natural food which never spoils</li>
+        <li>We need minimum 24 satellites in order to create worldwide functional GPS</li>
+        <li>Coca-cola was originally green</li>
+        <li>There are more than 8 planet-like body in our solar system but classified as dwarf planets</li>
+        <li>You burn more calories sleeping than watching TV</li>
+        <li>In a deck of cards the king of hearts is the only king without a moustache</li>
+        <li>You can’t kill yourself by holding your breath</li>
+        <li>Rocket are not launch straight to space but curved because we want them to fall to earth gravity but miss and create the effect of orbiting</li>
+        <li>Hoaxes are more spreading than ever with help of internet</li>
+        <li>Mental abilities are not absolutely separated into the left and right cerebral hemispheres of the brain</li>
+        <li>Sliding ball on earth is more faster using brachistochrone curve than a straight way</li>
+        <li>A small change in heavy traffic flow (light braking) can cause a huge jam</li>
+    </ul>
 </div>
-
 {% endblock %}
+
+
+{% block scripts %}
+    <script src="/static/scripts/rotate.js"></script>
+    <script type="text/javascript">
+        $("[data-toggle=popover]").popover({html:true});
+    </script>
+    <script src="/static/scripts/home.js"></script>
+{% endblock %}
+
+
