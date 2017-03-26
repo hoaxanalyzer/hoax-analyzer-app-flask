@@ -4,7 +4,8 @@ Routes and views for the flask application.
 
 from flask import render_template, request
 from FlaskWebProject1 import app
-import requests,json
+import json
+import urllib2
 
 @app.route('/')
 def home():
@@ -14,12 +15,14 @@ def home():
 @app.route('/results/<id>')
 def result(id):
     """Renders the result page."""
-    url = 'https://ah.lelah.ga/result'
-    headers = {'Content-Type':'application/json'}
-    data = {'id':id}
     try:
-        r = requests.post(url, data=json.dumps(data), headers=headers)
-        result =  r.json()
+        url = "https://sh.lelah.ga/result"
+        data = json.dumps({'id':id})
+        req = urllib2.Request(url, data, {'Content-Type': 'application/json'})
+        f = urllib2.urlopen(req)
+        response = f.read()
+        f.close()
+        result = json.loads(response)
         fact_p = result["scores"][1]
         hoax_p = result["scores"][2]
         conclude = result["conclusion"]
@@ -32,7 +35,7 @@ def result(id):
             conclusion = str(round(100*(fact_p/totalp),2))  + "% searches said it's"
         return render_template('result.html', result=result, conclusion=conclusion)
     except Exception as e:
-        return render_template('result.html', conclusion = json.dumps(e))
+        return e
 
 @app.route('/feedback/result', methods=['POST'])
 def feedbackResult():
@@ -40,12 +43,12 @@ def feedbackResult():
         data = request.json
         data["ip"] = _get_user_ip(request)
         data["browser"] = request.headers.get('User-Agent')
-        url = 'https://ah.lelah.ga/feedback/result'
-        headers = {'Content-Type':'application/json'}
-        print data
-        r = requests.post(url, data=json.dumps(data), headers=headers)
-        result = r.json()
-        return json.dumps(result)
+        url = "https://sh.lelah.ga/feedback/result"
+        req = urllib2.Request(url, json.dumps(data), {'Content-Type': 'application/json'})
+        f = urllib2.urlopen(req)
+        response = f.read()
+        f.close()
+        return response
 
 @app.route('/feedback/reference', methods=['POST'])
 def feedbackReference():
@@ -53,12 +56,13 @@ def feedbackReference():
         data = request.json
         data["ip"] = _get_user_ip(request)
         data["browser"] = request.headers.get('User-Agent')
-        url = 'https://ah.lelah.ga/feedback/reference'
-        headers = {'Content-Type':'application/json'}
+        url = "https://sh.lelah.ga/feedback/reference"
         print data
-        r = requests.post(url, data=json.dumps(data), headers=headers)
-        result = r.json()
-        return json.dumps(result)
+        req = urllib2.Request(url, json.dumps(data), {'Content-Type': 'application/json'})
+        f = urllib2.urlopen(req)
+        response = f.read()
+        f.close()
+        return response
 
 def _get_user_ip(request):
     ip = request.headers.get('X-Forwarded-For')

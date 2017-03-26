@@ -32,11 +32,15 @@
         <ul class="list-references list-group">
             {% set i = 1 %}
             {% for reference in result.references %}
+                {% if reference.label != "unrelated" %}
                 <li class='reference list-group-item'>
-                    <b>{{reference.url_base}}</b>
+                    <b><a target='_blank' href="{{reference.url}}">{{reference.url_base}}</a></b>
                     <br/>
                     <span class='disclaimer'>probably said it's a</span><span class='{{reference.label}}'>{{reference.label.upper()}}</span>
-                    <br/><button type='button' data-id="{i}" class='btn btn-primary reference-button btn-xs' data-toggle='modal' data-target="#reference-feedback-modal-{{i}}">See reference</button>
+                    <br/>
+                    <div class="feedback-reference-section">
+                        <button type='button' data-id="{i}" class='btn btn-primary feedback-button btn-xs' data-toggle='modal' data-target="#reference-feedback-modal-{{i}}">Give feedback</button>
+                    </div>
                 </li>
                 <div id='reference-feedback-modal-{{i}}' data-id="{{i}}" class='modal fade' role='dialog'>
                     <div class='modal-dialog'>
@@ -78,7 +82,8 @@
                         </div>
                     </div>
                 </div>
-                {% set i = i + 1 %}                
+                {% set i = i + 1 %} 
+                {% endif %}               
             {% endfor %}
         </ul>
         <hr/>

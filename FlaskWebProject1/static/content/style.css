@@ -185,6 +185,10 @@ body {
 	margin:0.75em;
 }
 
+.feedback-reference-section{
+	margin-top:0.25em;
+}
+
 .modal{
 	top: 20%;
 }

@@ -166,7 +166,7 @@ function callReferenceFeedbackAPI(referenceId, id){
 
   $.ajax({
     type: "POST",
-    url: "https://ah.lelah.ga/feedback/reference",
+    url: "/feedback/reference",
     data: JSON.stringify({isRelated: isR, label: l, reason: r, id: referenceId}),
     contentType: "application/json; charset=utf-8",
     dataType: "json",
