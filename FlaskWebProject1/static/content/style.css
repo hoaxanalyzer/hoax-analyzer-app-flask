@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i');
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	/*overflow: hidden;*/
+}
+
+#web-title{
+    color: #022D41;
+    font-size: 4em;
+}
+
+#web-slogan {
+	font-weight: 300;
+	font-size: 1.2em;
+}
+
+.input-form {
+	padding: 1em;
+	/* background-color: #DAECF3; */
+}
+
+.page-layer {
+	width: 100%;
+	height: 100vh;
+}
+
+.more-info {
+	margin-top: 77px;
+	padding: 0.8em;
+	background-color: #DAECF3;
+}
+
+.sentence-fact {
+	background-color: #4ECBDA;
+}
+
+.sentence-hoax {
+	background-color: #FF9198;
+}
+
+.sentence-ambigu {
+	background-color: #DAECF3;
+}
+
+.inference-info {
+	padding: 0.8em;
+	background-color: #DAECF3;
+}
+
+.list-references{
+	min-height: 100px;
+	height: 30vh;
+	border: 1px solid #EEE;
+}
+
+.reference {
+	padding: 10px;
+}
+
+.reference .disclaimer {
+	color: #AAA;
+}
+
+.reference .hoax {
+	padding: 2px;
+	margin-left: 5px;
+	margin-right: 5px;
+	background-color: #FF9198;
+	font-weight: bold;
+}
+
+.reference .fact {
+	padding: 2px;
+	margin-left: 5px;
+	margin-right: 5px;
+	background-color: #4ECBDA;
+	font-weight: bold;
+}
+
+.reference .unknown {
+	padding: 2px;
+	margin-left: 5px;
+	margin-right: 5px;
+	background-color: #DAECF3;
+	font-weight: bold;
+}
+
+.more-info > p {
+	margin: 0 !important;
+}
+
+#hoax-analyzer.btn {
+	min-width: 10em;
+	padding: 1.2em;
+	border-radius: 0px;
+	border: none;
+	margin: 1em;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+#hoax-analyzer.btn.btn-default {
+	background-color: #1AA6B7;
+	color: #FFF;
+}
+
+#hoax-analyzer.textarea {
+	border: 1px solid #CCC;
+	border-radius: 0;
+	resize: none;
+	height: 6em;
+}
+
+#hoax-analyzer.textarea.input {
+	border: 1px solid #CCC;	
+	resize: vertical;
+	overflow-y: scroll;
+	height: 24em !important;
+}
+
+#hoax-analyzer.step-three {
+	text-align: left;
+}
+
+.list-references{
+	overflow-y: scroll;
+	height: 14em !important;
+}
+
+.text-input-display{
+	overflow-y: scroll;
+}
+
+.text-input-display a{
+	color: white;
+	font-size: 1.25em;
+	background: #022D41;
+}
+
+.panel-heading{
+	height: 3em !important;
+}
+
+.show-text-input-button{
+	background: #1AA6B7;
+	color: white;
+}
+
+.show-text-input-button .glyphicon {
+	color:white !important;
+}
+
+.hide-text-input-button{
+	background: #FF9198;
+	color: black;
+}
+
+.hide-text-input-button .glyphicon {
+	color:black !important;
+}
+
+.panel-body{
+	height: 10em !important;
+	overflow-y: scroll;
+}
+
+.disclaimer-message p{
+	font-size:0.75em;
+	color: #AAA;
+}
+
+.collapse{
+	height: 4em;
+	overflow-y: scroll;
+}
+
+.help-text{
+	display: inline-block;
+	font-size:0.75em;
+	color: #AAA;
+}
+
+.feedback-result-section{
+	margin:0.75em;
+}
+
+.modal{
+	top: 20%;
+}
+
+#feedback{
+	margin: 1em;
+	width: 18em;
+	font-size: 1em;
+	resize: none;
+}
+
+.reference-text{
+	overflow-y: scroll;
+	margin-top: 0.5em;
+	height: 18em;
+}
+
+.reference-feedback-modal{
+	overflow-y: scroll;
+	height: 28em;
+}
+
+.feedback-button{
+	background: #1AA6B7;
+	color: white;
+}
+
+.reference-button{
+	background: #022D41;
+	color: white;
+}
+
+#feedback.btn {
+	background-color: #1AA6B7;
+	color: #FFF;
+	text-transform: uppercase;
+	border:none;
+}
+
