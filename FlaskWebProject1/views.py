@@ -30,7 +30,7 @@ def result(id):
         conclusion = str(round(100*(hoax_p/totalp),2)) + "% searches said it's"
     elif conclude == 'fact' and fact_p!=0:
         conclusion = str(round(100*(fact_p/totalp),2))  + "% searches said it's"
-    return render_template('result.html', result=result, conclusion=conclusion)
+    return json.dumps(result)
 
 @app.route('/feedback/result', methods=['POST'])
 def feedbackResult():
