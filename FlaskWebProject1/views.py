@@ -14,13 +14,13 @@ def home():
 
 @app.route('/results/<id>')
 def result(id):
-#     """Renders the result page."""
+    """Renders the result page."""
     url = 'https://ah.lelah.ga/result'
     headers = {'Content-Type':'application/json'}
     data = {'id':id}
     r = requests.post(url, data=json.dumps(data), headers=headers)
-    return json.dumps(r)
-#     result =  r.json()
+    result =  r.json()
+    return json.dumps(result)
 #     fact_p = result["scores"][1]
 #     hoax_p = result["scores"][2]
 #     conclude = result["conclusion"]
