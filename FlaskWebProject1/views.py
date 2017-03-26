@@ -18,8 +18,8 @@ def result(id):
     url = 'https://ah.lelah.ga/result'
     headers = {'Content-Type':'application/json'}
     data = {'id':id}
-    return json.dumps(data)
-#     r = requests.post(url, data=json.dumps(data), headers=headers)
+    r = requests.post(url, data=json.dumps(data), headers=headers)
+    return json.dumps(r)
 #     result =  r.json()
 #     fact_p = result["scores"][1]
 #     hoax_p = result["scores"][2]
