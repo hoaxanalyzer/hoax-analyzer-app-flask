@@ -12,9 +12,10 @@ def home():
     """Renders the home page."""
     return render_template('index.html')
 
-# @app.route('/results/<id>')
-# def result(id):
+@app.route('/results/<id>')
+def result(id):
 #     """Renders the result page."""
+    return id
 #     url = 'https://ah.lelah.ga/result'
 #     headers = {'Content-Type':'application/json'}
 #     data = {'id':id}
