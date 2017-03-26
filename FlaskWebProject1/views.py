@@ -2,16 +2,10 @@
 Routes and views for the flask application.
 """
 
-from flask import render_template
-from FlaskWebProject1 import app
-
-"""
-Routes and views for the flask application.
-"""
-
 from flask import render_template, request
 from FlaskWebProject1 import app
 import requests,json
+
 
 @app.route('/')
 def home():
