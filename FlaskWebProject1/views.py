@@ -18,7 +18,7 @@ def result(id):
     url = 'https://ah.lelah.ga/result'
     headers = {'Content-Type':'application/json'}
     data = {'id':id}
-    return data
+    return json.dumps(data)
 #     r = requests.post(url, data=json.dumps(data), headers=headers)
 #     result =  r.json()
 #     fact_p = result["scores"][1]
