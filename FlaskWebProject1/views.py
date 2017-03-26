@@ -4,7 +4,7 @@ Routes and views for the flask application.
 
 from flask import render_template, request
 from FlaskWebProject1 import app
-import requests
+import json
 # json
 
 
