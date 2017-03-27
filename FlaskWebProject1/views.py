@@ -66,10 +66,11 @@ def feedbackReference():
 def _get_user_ip(request):
     ip = request.headers.get('X-Forwarded-For')
     if ip is None:
-        ip = request.remote_addr
+        ip = request.environ['REMOTE_ADDR']
     
     return ip
 
-# @app.errorhandler(404)
-# def page_not_found(e):
-#     return render_template('404.html'), 404
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+

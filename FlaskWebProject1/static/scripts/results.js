@@ -79,7 +79,7 @@ $('.twitter-popup').click(function(event) {
   } else {
     result_url = window.location.origin + window.location.pathname;
   }
-  var tweet = 'Go check the result analysis of HoaxAnalyzer here.'; 
+  var tweet = 'Go check the analysis result of HoaxAnalyzer here.'; 
   window.open("http://twitter.com/intent/tweet?url=" + result_url + "&text=" + tweet, "twitterwindow", "height=450, width=550, toolbar=0, location=0, menubar=0, directories=0, scrollbars=0");
 
 });
