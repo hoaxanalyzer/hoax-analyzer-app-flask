@@ -16,7 +16,7 @@ def home():
 def result(id):
     """Renders the result page."""
     try:
-        url = "https://ah.lelah.ga/result"
+        url = "https://sh.lelah.ga/result"
         data = json.dumps({'id':id})
         req = urllib2.Request(url, data, {'Content-Type': 'application/json'})
         f = urllib2.urlopen(req)
@@ -43,7 +43,7 @@ def feedbackResult():
         data = request.json
         data["ip"] = _get_user_ip(request)
         data["browser"] = request.headers.get('User-Agent')
-        url = "https://ah.lelah.ga/feedback/result"
+        url = "https://sh.lelah.ga/feedback/result"
         req = urllib2.Request(url, json.dumps(data), {'Content-Type': 'application/json'})
         f = urllib2.urlopen(req)
         response = f.read()
@@ -56,8 +56,7 @@ def feedbackReference():
         data = request.json
         data["ip"] = _get_user_ip(request)
         data["browser"] = request.headers.get('User-Agent')
-        url = "https://ah.lelah.ga/feedback/reference"
-        print data
+        url = "https://sh.lelah.ga/feedback/reference"
         req = urllib2.Request(url, json.dumps(data), {'Content-Type': 'application/json'})
         f = urllib2.urlopen(req)
         response = f.read()
@@ -70,3 +69,7 @@ def _get_user_ip(request):
         ip = request.remote_addr
     
     return ip
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
