@@ -40,28 +40,34 @@ def result(id):
 @app.route('/feedback/result', methods=['POST'])
 def feedbackResult():
     if request.method == 'POST':
-        data = request.json
-        data["ip"] = _get_user_ip(request)
-        data["browser"] = request.headers.get('User-Agent')
-        url = "https://sh.lelah.ga/feedback/result"
-        req = urllib2.Request(url, json.dumps(data), {'Content-Type': 'application/json'})
-        f = urllib2.urlopen(req)
-        response = f.read()
-        f.close()
-        return response
+        try:
+            data = request.json
+            data["ip"] = _get_user_ip(request)
+            data["browser"] = request.headers.get('User-Agent')
+            url = "https://sh.lelah.ga/feedback/result"
+            req = urllib2.Request(url, json.dumps(data), {'Content-Type': 'application/json'})
+            f = urllib2.urlopen(req)
+            response = f.read()
+            f.close()
+            return response
+        except Exception as e:
+            return json.dumps(e)
 
 @app.route('/feedback/reference', methods=['POST'])
 def feedbackReference():
     if request.method == 'POST':
-        data = request.json
-        data["ip"] = _get_user_ip(request)
-        data["browser"] = request.headers.get('User-Agent')
-        url = "https://sh.lelah.ga/feedback/reference"
-        req = urllib2.Request(url, json.dumps(data), {'Content-Type': 'application/json'})
-        f = urllib2.urlopen(req)
-        response = f.read()
-        f.close()
-        return response
+        try:
+            data = request.json
+            data["ip"] = _get_user_ip(request)
+            data["browser"] = request.headers.get('User-Agent')
+            url = "https://sh.lelah.ga/feedback/reference"
+            req = urllib2.Request(url, json.dumps(data), {'Content-Type': 'application/json'})
+            f = urllib2.urlopen(req)
+            response = f.read()
+            f.close()
+            return response
+        except Exception as e:
+            return json.dumps(e)
 
 def _get_user_ip(request):
     ip = request.headers.get('X-Forwarded-For')
