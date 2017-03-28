@@ -35,7 +35,7 @@ def result(id):
             conclusion = str(round(100*(fact_p/totalp),2))  + "% searches said it's"
         return render_template('result.html', result=result, conclusion=conclusion)
     except Exception as e:
-        return json.dumps(e)
+        print e
 
 @app.route('/feedback/result', methods=['POST'])
 def feedbackResult():
@@ -51,7 +51,7 @@ def feedbackResult():
             f.close()
             return response
         except Exception as e:
-            return json.dumps(e)
+            print e
 
 @app.route('/feedback/reference', methods=['POST'])
 def feedbackReference():
@@ -67,7 +67,7 @@ def feedbackReference():
             f.close()
             return response
         except Exception as e:
-            return json.dumps(e)
+            print e
 
 def _get_user_ip(request):
     ip = request.headers.get('X-Forwarded-For')
