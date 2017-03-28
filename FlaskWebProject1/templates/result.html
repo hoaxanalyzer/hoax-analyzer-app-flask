@@ -17,7 +17,7 @@
             <div id="chart_div"></div>
             <div class="inference-info">{{conclusion}} <b>{{result.conclusion.upper()}}</b></div> 
             <div class="feedback-result-section">
-                <p class="help-text">Help us improve the result. </p> <button type="button" class="btn btn-success feedback-button btn-xs" data-toggle="modal" data-target="#result-feedback-modal">Give feedback</button>
+                <p class="help-text">Help us improve the result. </p> <button type="button" class="btn btn-primary feedback-button btn-xs" data-toggle="modal" data-target="#result-feedback-modal">Give feedback</button>
             </div>
         </center>
         <div class="disclaimer-message">
@@ -35,7 +35,7 @@
                 <li class='reference list-group-item'>
                     <b><a target='_blank' href="{{reference.url}}">{{reference.url_base}}</a></b>
                     <br/>
-                    <span class='disclaimer'>probably said it's a</span><span class='{{reference.label}}'>{{reference.label.upper()}}</span>
+                    <span class='disclaimer'>probably said it's {% if reference.label != "unrelated" %}a{% endif %}</span><span class='{{reference.label}}'>{{reference.label.upper()}}</span>
                     <br/>
                     <div class="feedback-reference-section">
                         <button type='button' data-id="{i}" class='btn btn-primary feedback-button btn-xs' data-toggle='modal' data-target="#reference-feedback-modal-{{i}}">Give feedback</button>
