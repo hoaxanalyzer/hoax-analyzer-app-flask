@@ -32,7 +32,6 @@
         <ul class="list-references list-group">
             {% set i = 1 %}
             {% for reference in result.references %}
-                {% if reference.label != "unrelated" %}
                 <li class='reference list-group-item'>
                     <b><a target='_blank' href="{{reference.url}}">{{reference.url_base}}</a></b>
                     <br/>
@@ -85,8 +84,7 @@
                         </div>
                     </div>
                 </div>
-                {% set i = i + 1 %} 
-                {% endif %}               
+                {% set i = i + 1 %}         
             {% endfor %}
         </ul>
         <hr/>
