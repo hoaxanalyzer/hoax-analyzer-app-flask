@@ -1,0 +1,201 @@
+body {
+	background-color: rgb(245, 245, 245);
+}
+
+hr {
+	border-top: 1px solid #E3E3E3;
+}
+
+h5 {
+    font-size: 14px;
+}
+
+@media only screen and (max-width: 991px) {
+	.ha-logo {
+		margin-bottom: 15px;
+	}
+	.ha-infos {
+		text-align: center;
+		margin-top: 5vh;
+		color: #888;
+	}
+	.ha-infoloader {
+		margin-top: 1.5vh;
+		text-align: center;
+		color: #1794A5;
+	}
+	.ha-share-text {
+		display: none;
+	}
+}
+
+@media only screen and (min-width: 991px) {
+	.ha-infos {
+		text-align: right;
+		margin-top: 5vh;
+		color: #888;
+	}
+	.ha-infoloader {
+		margin-top: 1.5vh;
+		text-align: left;
+		color: #1794A5;
+	}
+}
+
+.a-hidden:hover {
+	text-decoration: none;
+}
+
+.narrow-container {
+	margin-top: 25vh;
+	margin-left: 10vw;
+	margin-right: 10vw;
+}
+
+.result-container {
+	margin-top: 5vh;
+}
+
+.disclaimer-message p {
+    font-size: 0.75em;
+    color: #AAA;
+}
+
+.btn-ha {
+	background-color: #D3DCDF;
+}
+
+.ha-vcenter {
+	display: inline-block;
+	vertical-align: middle;
+	float: none;
+}
+
+.ha-main {
+	display: inline-block;
+}
+
+.ha-main-input {
+	width: 100%;
+	border: solid #DDD 1px;
+	resize: none;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.ha-info-single {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 8px;
+	padding-right: 8px;
+	border-radius: 3px;
+}
+
+.ha-info-single:hover {
+	text-decoration: underline;
+}
+
+.ha-loader {
+	text-align: center;
+	margin-top: 3.5vh;
+}
+
+.ha-dyk {
+	min-height: 100%;
+	margin: 0;
+}
+
+.ha-logo-result {
+	text-align: center;
+}
+
+.ha-result-holder {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.ha-result-chart {
+	background-color: #EFEFEF;
+}
+
+.ha-result-reference {
+	background-color: #FFFFFF;
+}
+
+.ha-result-feedback {
+	margin-top: 5px;
+	padding-right: 3px;
+	font-size: 11px;
+	text-align: right;
+}
+
+.ha-share-text {
+	padding-right: 15px;
+	color: #888;
+}
+
+.ha-share-icon {
+	padding-top: 2.5vh;
+	text-align: right;
+}
+
+.ha-share-icon > img {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.ha-reference {
+	margin-bottom: 15px;
+}
+
+.ha-reference-label {
+	text-align: right;
+	font-size: 11px;
+	color: #AAA;
+}
+
+.ha-reference-identify {
+	background-color: #ABC;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 12px;
+	padding-right: 12px;
+	margin-top: 5px;
+}
+
+.hoax {
+	color: white;
+	background-color: #FF3F49;
+}
+
+.fact {
+	color: white;
+	background-color: #1794A5;
+}
+
+.unknown {
+	color: #123;
+	background-color: #DAECF3;
+}
+
+.ha-reference-separator {
+	border-top: 1px solid #EEE;
+	width: 150px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+.ha-ref-title {
+	font-weight: 700;
+	color: #0C3447;
+}
+
+.ha-ref-content {
+	font-size: 12px;
+	color: #444;
+}
+
+.ha-ref-domain {
+	font-size: 13px;
+	color: #889BA3;
+}

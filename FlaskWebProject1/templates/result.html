@@ -1,152 +1,179 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div id="hoax-analyzer" class="step-three input-form">
-    <div class="col-md-6">
-        <div class="panel panel-default">
-            <div class="panel-heading clearfix">
-                <h4 class="panel-title pull-left"><strong>Text Input</strong></h4>
-                <button href="#text-input" class="btn btn-xs pull-right text-display-toggle" style="background: none;"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Show</button>
-            </div>
-            <div class='panel-body' id="text-input" style="display:none">{{result.inputText}}</div>
-        </div>
-
-        <hr/>      
-        <h4 id="hoax-analyzer"><strong>Analysis Result</strong></h4>
-        <center>
-            <div id="chart_div"></div>
-            <div class="inference-info">{{conclusion}} <b>{{result.conclusion.upper()}}</b></div> 
-            <div class="feedback-result-section">
-                <p class="help-text">Help us improve the result. </p> <button type="button" class="btn btn-primary feedback-button btn-xs" data-toggle="modal" data-target="#result-feedback-modal">Give feedback</button>
-            </div>
-        </center>
-        <div class="disclaimer-message">
-            <h5><strong>Disclaimer:</strong></h5>
-            <p>The calculations for the Hoax Probability are based on the cross-checking of the top results from search engines. Please check the articles in the references to ensure whether the Hoax Probability is correct.</p>
-        </div>
-        <hr/>
-    </div>
-
-    <div class="col-md-6">
-        <h4><strong>References</strong></h4>
-        <ul class="list-references list-group">
-            {% set i = 1 %}
-            {% for reference in result.references %}
-                <li class='reference list-group-item'>
-                    <b><a target='_blank' href="{{reference.url}}">{{reference.url_base}}</a></b>
-                    <br/>
-                    <span class='disclaimer'>probably said it's {% if reference.label != "unrelated" %}a{% endif %}</span><span class='{{reference.label}}'>{{reference.label.upper()}}</span>
-                    <br/>
-                    <div class="feedback-reference-section">
-                        <button type='button' data-id="{i}" class='btn btn-primary feedback-button btn-xs' data-toggle='modal' data-target="#reference-feedback-modal-{{i}}">Give feedback</button>
-                    </div>
-                </li>
-                <div id='reference-feedback-modal-{{i}}' data-id="{{i}}" class='modal fade' role='dialog'>
-                    <div class='modal-dialog'>
-                        <div class='modal-content reference-feedback-modal'>
-                            <div class='modal-header'>
-                                <button type='button' class='close' data-dismiss='modal'>&times;</button>
-                                <h4 class='modal-title'><strong>Reference Feedback</strong></h4>
-                            </div>
-                            <div class='modal-body'>
-                                <div class='col-md-6'>
-                                    <h5 style='display: inline;'><strong>Reference text</strong></h5>
-                                    <a class='pull-right source-link' target='_blank' href="{{reference.url}}">Source</a>
-                                    <p class='well reference-text'>{{reference.text}}</p>
-                                </div>
-                                <div class='col-md-6'>
-                                    <center>
-                                        <p><strong>Is the reference relevant to the text input?</strong></p>
-                                        <label class='radio-inline' for='radios-4'>
-                                            <input name='relevant-radios' class='radios-4' value='Relevant' type='radio'>Relevant
-                                        </label> 
-                                        <label class='radio-inline' for='radios-5'>
-                                            <input name='relevant-radios' class='radios-5' value='Not Relevant' checked='checked' type='radio'>Not Relevant
-                                        </label><br/>
-                                        <div class='reference-label-question' style='display: none'>
-                                            <br/>
-                                            <p><strong>What does the reference say about the text?</strong></p>
-                                            <label class='radio-inline' for='radios-6'>
-                                                <input name='reference-label-radios' id='radios-6' value='Fact' checked='checked' type='radio'>Fact
-                                            </label> 
-                                            <label class='radio-inline' for='radios-7'>
-                                                <input name='reference-label-radios' id='radios-7' value='Hoax' type='radio'>Hoax
-                                            </label>
-                                            <label class='radio-inline' for='radios-7'>
-                                                <input name='reference-label-radios' id='radios-8' value='Uknown' type='radio'>Unknown
-                                            </label>
-                                            <textarea id='feedback' class='form-control textarea searchinput reference-feedback-reason' name='reference-feedback-reason' rows='2' placeholder='Tell us the reason (optional)'></textarea>
-                                        </div>
-                                        <button id='feedback' type='button' data-id="{{reference.id}}" class='btn btn-default btn-sm reference-feedback-button'>Send</button>
-                                    </center>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {% set i = i + 1 %}         
-            {% endfor %}
-        </ul>
-        <hr/>
-        <div class="row">
-            <div class="col-md-5 col-xs-5"><b>Share with</b></div>
-            <div class="col-md-2 col-xs-2 fb-share-button" data-href="http://hoax-analyzer.azurewebsites.net/">
-                <a class="fb-xfbml-parse-ignore fb-popup" href="#"><img id="share_button" src="/static/img/facebook.png"/></a>
-            </div>
-            <div class="col-md-2 col-xs-2"><a class="twitter-share-button twitter-popup" href="#"><img src="/static/img/twitter.png"/></a></div>
-            <div class="col-md-2 col-xs-2"><a class="link-share-button" href="#"><img src="/static/img/link.png"/></a></div>
-        </div>
-        <hr/>
-        <div class="row">
-            <center>
-                <a id="hoax-analyzer" class="btn btn-default btn-sm" aria-label="Left Align" style="margin-top: 0;" href="/">
-                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Analyze other text
-                </a>
-            </center>
-        </div>
-    </div>
+<div class="container">
+		<div id="ha-analyze" class="result-container">
+				<div class="row">
+						<div class="col-xs-12 col-md-2 col-md-offset-1 ha-logo ha-vcenter ha-logo-result">
+								<img src="../static/img/logo.png" width="100px">
+						</div>
+						<div class="col-xs-12 col-md-8 ha-vcenter">
+								<div id="ha-input" class="input-group">
+										<textarea class="ha-main-input form-control">{{result.inputText}}</textarea>
+										<span class="input-group-addon btn btn-ha" onclick="">
+												<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+										</span>
+								</div>
+						</div>
+				</div>
+		</div>
+		<hr style="margin-bottom: 0px;"/>
+		<div id="ha-result">
+				<div class="row ha-result-holder">
+						<div class="col-md-3 ha-result-chart">
+								<center>                            
+										<div id="chart_div"></div>
+								</center>
+								<br/>
+								<div id="ha-dyk" class="alert alert-danger ha-dyk" role="alert">
+										<center>{{conclusion}} mengatakan <b>{{result.conclusion.upper()}}</b><br/></center>
+								</div>
+								<div class="ha-result-feedback">
+										Hasil salah? <a data-toggle="modal" data-target="#result-feedback-modal"><i>Berikan feedback</i></a>
+								</div>
+								<hr/>
+								<div class="disclaimer-message">
+										<h6><b>Perhatian</b></h6>
+										<p>Perhitungan probabilitas diatas berdasarkan pengecekan terhadap hasil teratas dari mesin pencarian yang kami gunakan.<br/>Tolong cek kembali artikel di referensi untuk memastikan kebenaran hasil yang kami berikan.</p>
+								</div>
+								<br/>
+						</div>
+						<div class="col-md-9 ha-result-reference">
+								<div class="row">
+										<div class="row col-md-offset-7 col-md-5 ha-share-icon">
+												<span class="ha-share-text">Bagikan</span>
+												<a class="fb-xfbml-parse-ignore fb-popup" href="#" data-href="http://hoax-analyzer.azurewebsites.net/">
+														<img src="img/fb-icon.png" width="25px">
+												</a>
+												<a class="twitter-share-button twitter-popup" href="#">
+														<img src="img/twitter-icon.png" width="25px">
+												</a>
+												<a class="link-share-button" href="#">
+														<img src="img/link-icon.png" width="25px">
+												</a>
+										</div>
+								</div>
+								<hr style="margin-bottom: 0px;"/>
+								<div class="row" style="padding-left: 20px">
+										<div class="col-md-12">
+												<h3>Referensi</h3>
+										</div>
+										{% set i = 1 %}
+										{% for reference in result.references %}
+										<div class="row col-md-12 ha-reference">
+												<div class="col-md-12">
+														<center><div class="ha-reference-separator"></div></center>
+												</div>
+												<div class="col-md-9">
+														<a class="a-hidden" href="{{reference.url}}"
+														<span class="ha-ref-title">{{reference.url_base}}</span>
+														<br/>
+														<span class="ha-ref-content">Facebook is an American for-profit corporation and online social media and social networking service based in Menlo Park, California. The Facebook website was ...</span>
+														<br/>
+														<span class="ha-ref-domain">https://en.wikipedia.org/wiki/Facebook</span>
+												</div>
+												<div class="col-md-3 ha-reference-label">
+														<span class="ha-reference-identify {% if reference.label != 'unrelated' %}a{% endif %}">{% if reference.label != "unrelated" %}a{% endif %}</span><br/><br/>
+														Salah? <a data-id="{i}" data-toggle='modal' data-target="#reference-feedback-modal-{{i}}"><i>Berikan feedback</i></a>
+												</div>
+										</div>
+										<!-- Feedback Reference -->
+										<div id='reference-feedback-modal-{{i}}' data-id="{{i}}" class='modal fade' role='dialog'>
+											<div class='modal-dialog'>
+													<div class='modal-content reference-feedback-modal'>
+															<div class='modal-header'>
+																	<button type='button' class='close' data-dismiss='modal'>&times;</button>
+																	<h4 class='modal-title'><strong>Feedback Referensi</strong></h4>
+															</div>
+															<div class='modal-body'>
+																		<div class='row'>
+																			<div class='col-md-6'>
+																					<h5 style='display: inline;'><strong>Teks Referensi</strong></h5>
+																					<a class='pull-right source-link' target='_blank' href="{{reference.url}}">Sumber</a>
+																					<p class='well reference-text'>{{reference.text}}</p>
+																			</div>
+																			<div class='col-md-6'>
+																					<center>
+																							<p><strong>Apakah referensi relevan dengan teks masukan?</strong></p>
+																							<label class='radio-inline' for='radios-4'>
+																									<input name='relevant-radios' class='radios-4' value='Relevant' type='radio'>Relevan
+																							</label> 
+																							<label class='radio-inline' for='radios-5'>
+																									<input name='relevant-radios' class='radios-5' value='Not Relevant' checked='checked' type='radio'>Tidak Relevan
+																							</label><br/>
+																							<div class='reference-label-question' style='display: none'>
+																									<br/>
+																									<p><strong>Apa yang disimpulkan dari teks tersebut?</strong></p>
+																									<label class='radio-inline' for='radios-6'>
+																											<input name='reference-label-radios' id='radios-6' value='Fact' checked='checked' type='radio'>Fakta
+																									</label> 
+																									<label class='radio-inline' for='radios-7'>
+																											<input name='reference-label-radios' id='radios-7' value='Hoax' type='radio'>Hoax
+																									</label>
+																									<label class='radio-inline' for='radios-7'>
+																											<input name='reference-label-radios' id='radios-8' value='Uknown' type='radio'>Tidak ada
+																									</label>
+																									<textarea id='feedback' class='form-control textarea searchinput reference-feedback-reason' name='reference-feedback-reason' rows='2' placeholder='Tell us the reason (optional)'></textarea>
+																							</div><br/>
+																							<button id='feedback' type='button' data-id="{{reference.id}}" class='btn btn-default btn-sm reference-feedback-button'>Kirim</button>
+																					</center>
+																			</div>
+																	</div>
+															</div>
+													</div>
+											</div>
+										</div>
+										{% set i = i + 1 %}         
+										{% endfor %}
+								</div>
+						</div>
+				</div>
+		</div>
 </div>
 
+<!-- Feedback Result -->
 <div id="result-feedback-modal" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title"><strong>Analysis Result Feedback</strong></h4>
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><strong>Feedback Hasil Analisis</strong></h4>
+      </div>
+      <div class="modal-body">
+          <center>
+            <p><strong>Apa hasil yang seharusnya?</strong></p>
+            <label class="radio-inline" for="radios-0">
+                <input name="is-know-radios" id="radios-0" value="Fact" type="radio">Fakta
+            </label> 
+            <label class="radio-inline" for="radios-1">
+                <input name="is-know-radios" id="radios-1" value="Hoax" type="radio">Hoax
+            </label>
+            <label class="radio-inline" for="radios-2">
+                <input name="is-know-radios" id="radios-2" value="Idk" checked="checked" type="radio">Tidak tau
+            </label>
+            <br/>
+            <br/>
+            <div id="result-label-question">
+                <textarea id="feedback" class="form-control textarea searchinput result-feedback-reason" name="result-feedback-reason" rows="2" placeholder="Beri tahu kami alasannya (opsional)" style="resize: none;"></textarea>
             </div>
-            <div class="modal-body">
-                <center>
-                    <p><strong>What the analysis result should be?</strong></p>
-                    <label class="radio-inline" for="radios-0">
-                        <input name="is-know-radios" id="radios-0" value="Fact" type="radio">Fact
-                    </label> 
-                    <label class="radio-inline" for="radios-1">
-                        <input name="is-know-radios" id="radios-1" value="Hoax" type="radio">Hoax
-                    </label>
-                    <label class="radio-inline" for="radios-2">
-                        <input name="is-know-radios" id="radios-2" value="Idk" checked="checked" type="radio">Don't know
-                    </label>
-                    <br/>
-                    <div id="result-label-question">
-                        <textarea id="feedback" class="form-control textarea searchinput result-feedback-reason" name="result-feedback-reason" rows="2" placeholder="Tell us the reason (optional)"></textarea>
-                    </div>
-                    <button id="feedback" type="button" class="btn btn-default btn-sm" onclick="callResultFeedbackAPI('{{result.id}}')">Send</button>
-              </center>
-            </div>
-        </div>
+            <br/>
+            <button id="feedback" type="button" class="btn btn-default btn-md" onclick="callResultFeedbackAPI('{{result.id}}')">Kirim</button>
+        </center>
+      </div>
     </div>
+  </div>
 </div>
 {% endblock %}
 
 {% block scripts %}
 <script src="/static/scripts/results.js"></script>
 <script>
-    fact_p = {{result.scores[1]}};
-    hoax_p = {{result.scores[2]}};
-    unkn_p = {{result.scores[3]}};
-    totalp = fact_p + hoax_p + unkn_p;
+		fact_p = {{result.scores[1]}};
+		hoax_p = {{result.scores[2]}};
+		unkn_p = {{result.scores[3]}};
+		totalp = fact_p + hoax_p + unkn_p;
 
-    chart_data = [['Fact', fact_p], ['Hoax', hoax_p], ['Unknown', unkn_p]];
-    drawChart();
+		chart_data = [['Fact', fact_p], ['Hoax', hoax_p], ['Unknown', unkn_p]];
+		drawChart();
 </script>
 {% endblock %}

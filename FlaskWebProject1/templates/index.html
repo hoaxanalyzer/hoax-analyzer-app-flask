@@ -1,31 +1,69 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div id="hoax-analyzer" class="step-one input-form" style="display: block">
-    <textarea id="hoax-analyzer" class="form-control textarea searchinput" name="textarea-field" rows="2" placeholder="Type text (min. 2 words) here"></textarea>
-    <button id="hoax-analyzer" name="analyze-button" class="btn btn-default" type="button" onclick="toStepTwo()">Analyze</button>
-</div>
-<div id="hoax-analyzer" class="step-two input-form" style="display: none">
-    <br/>
-    <div class="cssload-container">
-        <div class="cssload-whirlpool"></div>
+<div class="container">
+    <div id="ha-analyze" class="narrow-container">
+        <div class="row">
+            <div class="col-xs-offset-3 col-xs-6 col-sm-offset-3 col-sm-6 col-md-2 col-md-offset-1 ha-logo ha-vcenter">
+                <img src="../static/img/logo.png" width="100%">
+            </div>
+            <div class="col-xs-12 col-md-8 ha-vcenter">
+                <div id="ha-input" class="input-group">
+                    <textarea id="hoax-analyzer" class="ha-main-input form-control"></textarea>
+                    <span class="input-group-addon btn btn-ha" onclick="analyze()">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>
+                <div id="ha-dyk" class="alert alert-info ha-dyk" role="alert" style="display: none;">
+                    <b>Tahukah Anda?</b><br/>
+                    <span id="rotate">Flat earth is a hoax</span>
+                    <ul style="display:none">
+                        <li>Vaccine doesn't causing autism</li>
+                        <li>Linux and macOS are not immune to malware</li>
+                        <li>Entering your PIN on ATM doesn't notify the police</li>
+                        <li>Don't click "Who viewed your profile" in Facebook, it's a scam</li>
+                        <li>You can’t kill yourself by holding your breath</li>
+                        <li>Hoaxes are more spreading than ever with help of internet</li>
+                        <li>Entering your PIN in reverse at any ATM is not automatically summon the police</li>
+                        <li>Paracetamol doesn't contains machupo virus</li>
+                        <li>It is illegal to take photographs of the Eiffel Tower at night without explicit permission</li>
+                        <li>Kissing bugs in the U.S. have been found to carry a disease-causing parasite</li>
+                        <li>Under certain conditions, lionesses can grow manes and develop "masculine behavior"</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-1 col-md-4 ha-loader">
+                <div id="ha-loader" class="row" style="display: none;">
+                    <div class="col-md-offset-2 col-md-4">
+                        <div class="spinner">
+                          <div class="rect1"></div>
+                          <div class="rect2"></div>
+                          <div class="rect3"></div>
+                          <div class="rect4"></div>
+                          <div class="rect5"></div>
+                          <div class="rect6"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 ha-infoloader">
+                        Menganalisa...
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 ha-infos">
+                <span class="ha-info-single">Cara Kerja</span> - <span class="ha-info-single">Bantuan</span> - <span class="ha-info-single">Tentang Kami</span>
+            </div>
+        </div>
     </div>
-    <div class="more-info">
-        <p><b>Did you know?</b> <span id="rotate">Flat earth is a hoax</span></p>
+    <div id="ha-loader">
+        <div class="row">
+            <div class="col-md-2 col-md-offset-5">
+                <center>
+                </center>
+            </div>
+        </div>
     </div>
-    <ul style="display:none">
-        <li>Vaccine doesn't causing autism</li>
-        <li>Linux and macOS are not immune to malware</li>
-        <li>Entering your PIN on ATM doesn't notify the police</li>
-        <li>Don't click "Who viewed your profile" in Facebook, it's a scam</li>
-        <li>You can’t kill yourself by holding your breath</li>
-        <li>Hoaxes are more spreading than ever with help of internet</li>
-        <li>Entering your PIN in reverse at any ATM IS NOT automatically summon the police</li>
-        <li>Paracetamol doesn't contains machupo virus</li>
-        <li>It is illegal to take photographs of the Eiffel Tower at night without explicit permission</li>
-        <li>Kissing bugs in the U.S. have been found to carry a disease-causing parasite</li>
-        <li>Under certain conditions, lionesses can grow manes and develop "masculine behavior"</li>
-    </ul>
 </div>
 {% endblock %}
 

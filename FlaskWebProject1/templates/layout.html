@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
       
     <title>Hoax Analyzer</title>
 
@@ -28,8 +28,11 @@
     <meta property="og:image" content="/static/img/Hoax-Analyzer-title.png" />
 
     <link href="/static/content/bootstrap.min.css" rel="stylesheet">
-    <link href="/static/content/loading.css" rel="stylesheet">
-    <link href="/static/content/style.css" rel="stylesheet">
+<!--     <link href="/static/content/loading.css" rel="stylesheet">
+    <link href="/static/content/style.css" rel="stylesheet"> -->
+
+    <link rel="stylesheet" href="/static/content/theme.css">
+    <link rel="stylesheet" href="/static/content/loader.css">
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="57x57" href="/static/img/apple-icon-57x57.png">
@@ -67,26 +70,10 @@
       }(document, 'script', 'facebook-jssdk'));
     </script>
 
-    <div class="page-layer">
-        <div class="container">
-            <div class="row" id="main-content" style="/*margin-top: 6em*/ margin-top:1.5em">
-                <center>
-                    <div class="col-md-offset-2 col-md-8 col-xs-offset-1 col-xs-10">
-                        <div id="header">
-                            <h1 id="web-title"><strong>Hoax Analyzer</strong></h1>
-                            <p id="web-slogan">Hoax or not? We'll help you figure it out</p>
-                        </div>
-                        <br/>  
-                        {% block content %}{% endblock %}
-                    </div>
-                </center>
-            </div>
-        </div>
-    </div>
+    {% block content %}{% endblock %}
 
     <script src="/static/scripts/jquery.min.js"></script>
     <script src="/static/scripts/bootstrap.min.js"></script>
     {% block scripts %}{% endblock %}
-
 </body>
 </html>

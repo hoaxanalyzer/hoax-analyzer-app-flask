@@ -1,7 +1,7 @@
 function isInputValid(){
-  var words = $("#hoax-analyzer.searchinput").val().split(" ");
+  var words = $("#hoax-analyzer.ha-main-input").val().split(" ");
 
-  if(words.length>1){
+  if(words.length>2){
     return true;
   }else{
     return false;
@@ -10,13 +10,14 @@ function isInputValid(){
 
 function toStepTwo() {
   if(isInputValid()){
-      $(".step-one").fadeOut().css("display", "none");
-	  $(".step-two").fadeIn().css("display", "block");
+    $("#ha-input").fadeOut().css("display", "none");
+    $("#ha-dyk").fadeIn().css("display", "block");
+    $("#ha-loader").fadeIn().css("display", "block");
 
-	  query = $("#hoax-analyzer.searchinput").val();
+	  query = $("#hoax-analyzer.ha-main-input").val();
 	  callAnalyzerAPI(query);
   }else{
-    alert("Input NOT VALID. The input must be more than 2 words. Please try again.");
+    alert("Input not valid. The input must be more than 3 words. Please try again.");
   }
 	
 }
