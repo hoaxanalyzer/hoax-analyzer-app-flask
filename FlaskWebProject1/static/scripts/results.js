@@ -13,11 +13,13 @@ function drawChart() {
   data.addRows(chart_data);
 
   var options = {'width':230,
-                 'height':140,
-                 'chartArea': {'width': '100%', 'height': '80%'},
+                 'height':230,
+                 'chartArea': {'width': '100%', 'height': '70%'},
+                 'legend':'bottom',
                 pieSliceText: 'none',
                 pieHole: 0.4,
-                slices: {0: {color: '#4ECBDA'}, 1:{color: '#FF9198'}, 2:{color: '#DAECF3'}}
+                backgroundColor: '#EFEFEF',
+                slices: {0: {color: '#1794A5'}, 1:{color: '#FF3F49'}, 2:{color: '#DAECF3'}}
                 };
 
   var chart = new google.visualization.PieChart(document.getElementById('chart_div'));

@@ -9,11 +9,49 @@
 						</div>
 						<div class="col-xs-12 col-md-8 ha-vcenter">
 								<div id="ha-input" class="input-group">
-										<textarea class="ha-main-input form-control">{{result.inputText}}</textarea>
-										<span class="input-group-addon btn btn-ha" onclick="">
+										<textarea id="hoax-analyzer" class="ha-main-input form-control">{{result.inputText}}</textarea>
+										<span class="input-group-addon btn btn-ha" onclick="toStepTwo()">
 												<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 										</span>
 								</div>
+								<div id="ha-research" class="row" style="display:none">
+									<div class="col-md-10">
+		                <div id="ha-dyk" class="alert alert-info ha-dyk" role="alert" style="">
+		                    <b>Tahukah Anda?</b><br/>
+		                    <span id="rotate">Flat earth is a hoax</span>
+		                    <ul style="display:none">
+		                        <li>Vaccine doesn't causing autism</li>
+		                        <li>Linux and macOS are not immune to malware</li>
+		                        <li>Entering your PIN on ATM doesn't notify the police</li>
+		                        <li>Don't click "Who viewed your profile" in Facebook, it's a scam</li>
+		                        <li>You can’t kill yourself by holding your breath</li>
+		                        <li>Hoaxes are more spreading than ever with help of internet</li>
+		                        <li>Entering your PIN in reverse at any ATM is not automatically summon the police</li>
+		                        <li>Paracetamol doesn't contains machupo virus</li>
+		                        <li>It is illegal to take photographs of the Eiffel Tower at night without explicit permission</li>
+		                        <li>Kissing bugs in the U.S. have been found to carry a disease-causing parasite</li>
+		                        <li>Under certain conditions, lionesses can grow manes and develop "masculine behavior"</li>
+		                    </ul>
+		                </div>
+		              </div>
+									<div class="col-md-2">
+										<div class="row" style="">
+			                <div class="col-md-12 ha-result-loader">
+			                    <div class="spinner">
+			                      <div class="rect1"></div>
+			                      <div class="rect2"></div>
+			                      <div class="rect3"></div>
+			                      <div class="rect4"></div>
+			                      <div class="rect5"></div>
+			                      <div class="rect6"></div>
+			                    </div>
+			                </div>
+			                <div class="col-md-12 ha-result-infoloader">
+			                	Menganalisa...
+			                </div>
+				            </div>
+									</div>
+		            </div>
 						</div>
 				</div>
 		</div>
@@ -25,8 +63,8 @@
 										<div id="chart_div"></div>
 								</center>
 								<br/>
-								<div id="ha-dyk" class="alert alert-danger ha-dyk" role="alert">
-										<center>{{conclusion}} mengatakan <b>{{result.conclusion.upper()}}</b><br/></center>
+								<div id="ha-dyk" class="alert {{box}} ha-dyk" role="alert">
+										<center>{{conclusion}}<b>{{result.conclusion.upper()}}</b><br/></center>
 								</div>
 								<div class="ha-result-feedback">
 										Hasil salah? <a data-toggle="modal" data-target="#result-feedback-modal"><i>Berikan feedback</i></a>
@@ -43,13 +81,13 @@
 										<div class="row col-md-offset-7 col-md-5 ha-share-icon">
 												<span class="ha-share-text">Bagikan</span>
 												<a class="fb-xfbml-parse-ignore fb-popup" href="#" data-href="http://hoax-analyzer.azurewebsites.net/">
-														<img src="img/fb-icon.png" width="25px">
+														<img src="../static/img/fb-icon.png" width="25px">
 												</a>
 												<a class="twitter-share-button twitter-popup" href="#">
-														<img src="img/twitter-icon.png" width="25px">
+														<img src="../static/img/twitter-icon.png" width="25px">
 												</a>
 												<a class="link-share-button" href="#">
-														<img src="img/link-icon.png" width="25px">
+														<img src="../static/img/link-icon.png" width="25px">
 												</a>
 										</div>
 								</div>
@@ -65,15 +103,16 @@
 														<center><div class="ha-reference-separator"></div></center>
 												</div>
 												<div class="col-md-9">
-														<a class="a-hidden" href="{{reference.url}}"
+													<a class="a-hidden" href="{{reference.url}}">
 														<span class="ha-ref-title">{{reference.url_base}}</span>
 														<br/>
-														<span class="ha-ref-content">Facebook is an American for-profit corporation and online social media and social networking service based in Menlo Park, California. The Facebook website was ...</span>
+														<span class="ha-ref-content">{{reference.text[:180]}}...</span>
 														<br/>
-														<span class="ha-ref-domain">https://en.wikipedia.org/wiki/Facebook</span>
+														<span class="ha-ref-domain">{{reference.url}}</span>
+													</a>
 												</div>
 												<div class="col-md-3 ha-reference-label">
-														<span class="ha-reference-identify {% if reference.label != 'unrelated' %}a{% endif %}">{% if reference.label != "unrelated" %}a{% endif %}</span><br/><br/>
+														<span class="ha-reference-identify {{reference.label}}">{{reference.label}}</span><br/><br/>
 														Salah? <a data-id="{i}" data-toggle='modal' data-target="#reference-feedback-modal-{{i}}"><i>Berikan feedback</i></a>
 												</div>
 										</div>
@@ -114,7 +153,7 @@
 																											<input name='reference-label-radios' id='radios-8' value='Uknown' type='radio'>Tidak ada
 																									</label>
 																									<textarea id='feedback' class='form-control textarea searchinput reference-feedback-reason' name='reference-feedback-reason' rows='2' placeholder='Tell us the reason (optional)'></textarea>
-																							</div><br/>
+																							</div>
 																							<button id='feedback' type='button' data-id="{{reference.id}}" class='btn btn-default btn-sm reference-feedback-button'>Kirim</button>
 																					</center>
 																			</div>
@@ -156,7 +195,6 @@
             <div id="result-label-question">
                 <textarea id="feedback" class="form-control textarea searchinput result-feedback-reason" name="result-feedback-reason" rows="2" placeholder="Beri tahu kami alasannya (opsional)" style="resize: none;"></textarea>
             </div>
-            <br/>
             <button id="feedback" type="button" class="btn btn-default btn-md" onclick="callResultFeedbackAPI('{{result.id}}')">Kirim</button>
         </center>
       </div>
@@ -166,7 +204,9 @@
 {% endblock %}
 
 {% block scripts %}
+<script src="/static/scripts/rotate.js"></script>
 <script src="/static/scripts/results.js"></script>
+<script src="/static/scripts/home.js"></script>
 <script>
 		fact_p = {{result.scores[1]}};
 		hoax_p = {{result.scores[2]}};

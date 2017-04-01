@@ -28,14 +28,17 @@ def result(id):
         conclude = result["conclusion"]
         unkn_p = result["scores"][3]
         totalp = fact_p + hoax_p + unkn_p
-        conclusion = "We cannot conclude anything. It's"
+        conclusion = "Kami tidak dapat menyimpulkan. "
+        box = "alert-warning"
         if conclude == 'hoax':
-            conclusion = str(round(100*(hoax_p/totalp),2)) + "% searches said it's"
+            conclusion = str(round(100*(hoax_p/totalp),2)) + "% mengatakan "
+            box = "alert-danger"
         elif conclude == 'fact' and fact_p!=0:
-            conclusion = str(round(100*(fact_p/totalp),2))  + "% searches said it's"
-        return render_template('result.html', result=result, conclusion=conclusion)
+            conclusion = str(round(100*(fact_p/totalp),2))  + "% mengatakan "
+            box = "alert-info"
+        return render_template('result.html', result=result, conclusion=conclusion, box=box)
     except Exception as e:
-        print e
+        print(e)
 
 @app.route('/feedback/result', methods=['POST'])
 def feedbackResult():
@@ -51,7 +54,7 @@ def feedbackResult():
             f.close()
             return response
         except Exception as e:
-            print e
+            print(e)
 
 @app.route('/feedback/reference', methods=['POST'])
 def feedbackReference():
@@ -67,7 +70,7 @@ def feedbackReference():
             f.close()
             return response
         except Exception as e:
-            print e
+            print(e)
 
 def _get_user_ip(request):
     ip = request.headers.get('X-Forwarded-For')

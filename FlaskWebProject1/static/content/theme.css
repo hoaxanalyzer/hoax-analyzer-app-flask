@@ -65,6 +65,15 @@ h5 {
 	background-color: #D3DCDF;
 }
 
+.ha-result-infoloader {
+	text-align: center;
+	color: #1794A5;
+}
+
+.ha-result-loader {
+	text-align: center;
+}
+
 .ha-vcenter {
 	display: inline-block;
 	vertical-align: middle;
@@ -139,7 +148,7 @@ h5 {
 	text-align: right;
 }
 
-.ha-share-icon > img {
+.ha-share-icon img {
 	margin-left: 10px;
 	margin-right: 10px;
 }
@@ -199,3 +208,62 @@ h5 {
 	font-size: 13px;
 	color: #889BA3;
 }
+
+.collapse{
+	height: 4em;
+	overflow-y: scroll;
+}
+
+.help-text{
+	display: inline-block;
+	font-size:0.75em;
+	color: #AAA;
+}
+
+.feedback-result-section{
+	margin:0.75em;
+}
+
+.feedback-reference-section{
+	margin-top:0.25em;
+}
+
+.modal{
+	top: 20%;
+}
+
+#feedback{
+	margin: 1em;
+	width: 18em;
+	font-size: 1em;
+	resize: none;
+}
+
+.reference-text{
+	overflow-y: scroll;
+	margin-top: 0.5em;
+	height: 18em;
+}
+
+.reference-feedback-modal{
+	overflow: none;
+	height: 28em;
+}
+
+.feedback-button{
+	background: #1AA6B7;
+	color: white;
+}
+
+.reference-button{
+	background: #022D41;
+	color: white;
+}
+
+#feedback.btn {
+	background-color: #1AA6B7;
+	color: #FFF;
+	text-transform: uppercase;
+	border:none;
+}
+
