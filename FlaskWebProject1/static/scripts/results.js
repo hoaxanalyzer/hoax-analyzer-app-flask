@@ -133,10 +133,10 @@ function callResultFeedbackAPI(resultId){
       success: function(data){
         if(data.status == "Success"){
           $('#result-feedback-modal').modal('hide');
-          alert("Success! Feedback successfully sent. Thank you ");
+          alert("Berhasil! Feedback telah tercatat. Terima kasih.");
           isSubmittedResultFeedback = true;     
         }else{
-          alert("Failed! " + data.message + " ");
+          alert("Gagal! " + data.message + " ");
         }
       },
       failure: function(errMsg){
@@ -144,7 +144,7 @@ function callResultFeedbackAPI(resultId){
       }
     });
   }else{
-    alert("You cannot submit the result feedback more than once!");
+    alert("Anda tidak dapat memberikan feedback lebih dari satu kali!");
   }
 }
 
@@ -168,9 +168,9 @@ function callReferenceFeedbackAPI(referenceId, id){
     success: function(data){
       if(data.status == "Success"){
         $('#reference-feedback-modal-' + id).modal('hide');
-        alert("Success! Feedback successfully sent. Thank you");
+        alert("Berhasil! Feedback telah tercatat. Terima kasih.");
       }else{
-        alert("Failed! " + data.message);
+        alert("Gagal! " + data.message);
       }
     },
     failure: function(errMsg){

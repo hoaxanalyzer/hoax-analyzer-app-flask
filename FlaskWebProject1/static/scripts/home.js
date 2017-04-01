@@ -18,7 +18,7 @@ function toStepTwo() {
 	  query = $("#hoax-analyzer.ha-main-input").val();
 	  callAnalyzerAPI(query);
   }else{
-    alert("Input not valid. The input must be more than 3 words. Please try again.");
+    alert("Masukan tidak benar. Harus memiliki 3 kata atau lebih. Harap coba kembali.");
   }
 }
 

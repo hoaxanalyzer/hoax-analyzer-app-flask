@@ -1,66 +1,102 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div class="container">
-    <div id="ha-analyze" class="narrow-container">
-        <div class="row">
-            <div class="col-xs-offset-3 col-xs-6 col-sm-offset-3 col-sm-6 col-md-2 col-md-offset-1 ha-logo ha-vcenter">
-                <img src="../static/img/logo.png" width="100%">
-            </div>
-            <div class="col-xs-12 col-md-8 ha-vcenter">
-                <div id="ha-input" class="input-group">
-                    <textarea id="hoax-analyzer" class="ha-main-input form-control"></textarea>
-                    <span class="input-group-addon btn btn-ha" onclick="toStepTwo()">
-                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                    </span>
+<div id="main" class="ha-segment-one">
+    <div class="container">
+        <div id="ha-analyze" class="narrow-container">
+            <div class="row">
+                <div class="col-xs-offset-3 col-xs-6 col-sm-offset-3 col-sm-6 col-md-2 col-md-offset-1 ha-logo ha-vcenter">
+                    <a href="/"><img src="../static/img/logo.png" width="100px"></a>
                 </div>
-                <div id="ha-dyk" class="alert alert-info ha-dyk" role="alert" style="display: none;">
-                    <b>Tahukah Anda?</b><br/>
-                    <span id="rotate">Flat earth is a hoax</span>
-                    <ul style="display:none">
-                        <li>Vaccine doesn't causing autism</li>
-                        <li>Linux and macOS are not immune to malware</li>
-                        <li>Entering your PIN on ATM doesn't notify the police</li>
-                        <li>Don't click "Who viewed your profile" in Facebook, it's a scam</li>
-                        <li>You can’t kill yourself by holding your breath</li>
-                        <li>Hoaxes are more spreading than ever with help of internet</li>
-                        <li>Entering your PIN in reverse at any ATM is not automatically summon the police</li>
-                        <li>Paracetamol doesn't contains machupo virus</li>
-                        <li>It is illegal to take photographs of the Eiffel Tower at night without explicit permission</li>
-                        <li>Kissing bugs in the U.S. have been found to carry a disease-causing parasite</li>
-                        <li>Under certain conditions, lionesses can grow manes and develop "masculine behavior"</li>
-                    </ul>
+                <div class="col-xs-12 col-md-8 ha-vcenter">
+                    <div id="ha-input" class="input-group">
+                        <textarea id="hoax-analyzer" class="ha-main-input form-control"></textarea>
+                        <span class="input-group-addon btn btn-ha" onclick="toStepTwo()">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </span>
+                    </div>
+                    <div id="ha-dyk" class="alert alert-info ha-dyk" role="alert" style="display: none;">
+                        <b>Tahukah Anda?</b><br/>
+                            <span id="rotate">Flat earth adalah hoax</span>
+                        <ul style="display:none">
+                            <li>Vaksin tidak menyebabkan autisme</li>
+                            <li>Linux dan macOS tidak kebal terhadap virus</li>
+                            <li>Memasukan PIN ATM secara terbalik tidak akan memanggil polisi</li>
+                            <li>Jangan menekan "Who viewed your profile" di Facebook, hal itu adalah penipuan</li>
+                            <li>Anda tidak dapat bunuh diri dengan cara menahan nafas</li>
+                            <li>Hoax makin menyebar dengan cepat dengan bantuan internet</li>
+                            <li>Paracetamol tidak mengandung virus machupo</li>
+                            <li>Madu dalam kondisi ideal tidak pernah membusuk</li>
+                            <li>Sebanyak 24 satelit dibutuhkan untuk membuat sistem GPS global</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-offset-1 col-md-4 ha-loader">
-                <div id="ha-loader" class="row" style="display: none;">
-                    <div class="col-md-offset-2 col-md-4">
-                        <div class="spinner">
-                          <div class="rect1"></div>
-                          <div class="rect2"></div>
-                          <div class="rect3"></div>
-                          <div class="rect4"></div>
-                          <div class="rect5"></div>
-                          <div class="rect6"></div>
+            <div class="row">
+                <div class="col-md-offset-1 col-md-4 ha-loader">
+                    <div id="ha-loader" class="row" style="display: none;">
+                        <div class="col-md-offset-2 col-md-4">
+                            <div class="spinner">
+                              <div class="rect1"></div>
+                              <div class="rect2"></div>
+                              <div class="rect3"></div>
+                              <div class="rect4"></div>
+                              <div class="rect5"></div>
+                              <div class="rect6"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 ha-infoloader">
+                            Menganalisis...
                         </div>
                     </div>
-                    <div class="col-md-6 ha-infoloader">
-                        Menganalisa...
-                    </div>
                 </div>
-            </div>
-            <div class="col-md-6 ha-infos">
-                <span class="ha-info-single">Cara Kerja</span> - <span class="ha-info-single">Bantuan</span> - <span class="ha-info-single">Tentang Kami</span>
+                <div class="col-md-6 ha-infos">
+                    <a href="#hiw"><span class="ha-info-single">Cara Kerja</span></a> - <a href="#about"><span class="ha-info-single">Tentang Kami</span></a>
+                </div>
             </div>
         </div>
     </div>
-    <div id="ha-loader">
-        <div class="row">
-            <div class="col-md-2 col-md-offset-5">
+</div>
+<div id="hiw" class="ha-segment-two">
+    <div class="container">
+        <div class="ha-segment-upper">
+            <span class="ha-segment-title">Bagaimana cara aplikasi ini bekerja?</span>
+            <br/>
+            <span class="ha-segment-subtitle">Menggunakan <i>machine learning</i> untuk mengidentifikasi artikel referensi yang ada di internet dan menjawab teks masukan Anda.</span>
+        </div>
+        <br/>
+        <br/><br/>
+        <center>
+            <a href="#main"><input type="button" class="btn btn-default" value="Kembali ke Aplikasi"></a>
+        </center>
+    </div>
+</div>
+<div id="about" class="ha-segment-four">
+    <div class="container">
+        <div class="ha-segment-upper">
+            <span class="ha-segment-title">Tentang Kami</span>
+            <br/>
+            <span class="ha-segment-subtitle">Kami adalah mahasiswa Teknik Informatika dan Sistem dan Teknologi Informasi dari Institut Teknologi Bandung yang ingin membantu memecahkan masalah <i>hoax</i></span>
+        </div>
+        <div class="row ha-segment-row">
+            <div class="col-md-4">
+                <img class="photo" src="../static/img/team-03.jpg"/><br/><br/>
+                Tifani Warnita<br/><br/>
+            </div>
+            <div class="col-md-4">
+                <img class="photo" src="../static/img/team-02.jpg"/><br/><br/>
+                Adinda Budi Kusuma Putra<br/><br/>
+            </div>
+            <div class="col-md-4">
+                <img class="photo" src="../static/img/team-01.jpg"/><br/><br/>
+                Feryandi Nurdiantoro<br/><br/>
+            </div>
+        </div>
+        <div class="row ha-segment-row">
+            <div class="col-md-12">
                 <center>
-                </center>
+                    <a href="#main"><input type="button" class="btn btn-default" value="Kembali ke Aplikasi"></a>
+                </center>                       
             </div>
         </div>
     </div>

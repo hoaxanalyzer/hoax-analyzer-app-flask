@@ -5,7 +5,7 @@
 		<div id="ha-analyze" class="result-container">
 				<div class="row">
 						<div class="col-xs-12 col-md-2 col-md-offset-1 ha-logo ha-vcenter ha-logo-result">
-								<img src="../static/img/logo.png" width="100px">
+							<a href="/"><img src="../static/img/logo.png" width="100px"></a>
 						</div>
 						<div class="col-xs-12 col-md-8 ha-vcenter">
 								<div id="ha-input" class="input-group">
@@ -18,19 +18,17 @@
 									<div class="col-md-10">
 		                <div id="ha-dyk" class="alert alert-info ha-dyk" role="alert" style="">
 		                    <b>Tahukah Anda?</b><br/>
-		                    <span id="rotate">Flat earth is a hoax</span>
+		                    <span id="rotate">Flat earth adalah hoax</span>
 		                    <ul style="display:none">
-		                        <li>Vaccine doesn't causing autism</li>
-		                        <li>Linux and macOS are not immune to malware</li>
-		                        <li>Entering your PIN on ATM doesn't notify the police</li>
-		                        <li>Don't click "Who viewed your profile" in Facebook, it's a scam</li>
-		                        <li>You can’t kill yourself by holding your breath</li>
-		                        <li>Hoaxes are more spreading than ever with help of internet</li>
-		                        <li>Entering your PIN in reverse at any ATM is not automatically summon the police</li>
-		                        <li>Paracetamol doesn't contains machupo virus</li>
-		                        <li>It is illegal to take photographs of the Eiffel Tower at night without explicit permission</li>
-		                        <li>Kissing bugs in the U.S. have been found to carry a disease-causing parasite</li>
-		                        <li>Under certain conditions, lionesses can grow manes and develop "masculine behavior"</li>
+		                        <li>Vaksin tidak menyebabkan autisme</li>
+		                        <li>Linux dan macOS tidak kebal terhadap virus</li>
+		                        <li>Memasukan PIN ATM secara terbalik tidak akan memanggil polisi</li>
+		                        <li>Jangan menekan "Who viewed your profile" di Facebook, hal itu adalah penipuan</li>
+		                        <li>Anda tidak dapat bunuh diri dengan cara menahan nafas</li>
+		                        <li>Hoax makin menyebar dengan cepat dengan bantuan internet</li>
+		                        <li>Paracetamol tidak mengandung virus machupo</li>
+		                        <li>Madu dalam kondisi ideal tidak pernah membusuk</li>
+		                        <li>Sebanyak 24 satelit dibutuhkan untuk membuat sistem GPS global</li>
 		                    </ul>
 		                </div>
 		              </div>
@@ -47,7 +45,7 @@
 			                    </div>
 			                </div>
 			                <div class="col-md-12 ha-result-infoloader">
-			                	Menganalisa...
+			                	Menganalisis...
 			                </div>
 				            </div>
 									</div>
@@ -72,7 +70,7 @@
 								<hr/>
 								<div class="disclaimer-message">
 										<h6><b>Perhatian</b></h6>
-										<p>Perhitungan probabilitas diatas berdasarkan pengecekan terhadap hasil teratas dari mesin pencarian yang kami gunakan.<br/>Tolong cek kembali artikel di referensi untuk memastikan kebenaran hasil yang kami berikan.</p>
+										<p>Perhitungan probabilitas di atas berdasarkan pengecekan terhadap hasil teratas dari mesin pencarian yang kami gunakan.<br/>Harap cek kembali artikel di referensi untuk memastikan kebenaran hasil yang kami berikan.</p>
 								</div>
 								<br/>
 						</div>
@@ -102,8 +100,8 @@
 												<div class="col-md-12">
 														<center><div class="ha-reference-separator"></div></center>
 												</div>
-												<div class="col-md-9">
-													<a class="a-hidden" href="{{reference.url}}">
+												<div class="col-md-9" style="overflow: hidden;">
+													<a class="a-hidden" href="{{reference.url}}" target="_blank">
 														<span class="ha-ref-title">{{reference.url_base}}</span>
 														<br/>
 														<span class="ha-ref-content">{{reference.text[:180]}}...</span>
@@ -126,7 +124,7 @@
 															</div>
 															<div class='modal-body'>
 																		<div class='row'>
-																			<div class='col-md-6'>
+																			<div class='col-md-6 feedback-optional-text'>
 																					<h5 style='display: inline;'><strong>Teks Referensi</strong></h5>
 																					<a class='pull-right source-link' target='_blank' href="{{reference.url}}">Sumber</a>
 																					<p class='well reference-text'>{{reference.text}}</p>
