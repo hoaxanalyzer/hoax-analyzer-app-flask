@@ -5,24 +5,13 @@
     <div class="container">
         <div id="ha-analyze" class="narrow-container">
             <div class="row">
-                <div class="col-xs-offset-3 col-xs-6 col-sm-offset-3 col-sm-6 col-md-2 col-md-offset-1 ha-logo ha-vcenter">
-                    <a href="/"><img src="../static/img/logo.png" width="100px"></a>
-                </div>
-                 <div class="col-xs-12 col-md-8 ha-vcenter">
+                <div class="col-xs-12 col-md-8 ha-vcenter">
                     <div id="ha-input" class="input-group">
                         <textarea id="hoax-analyzer" class="ha-main-input form-control" placeholder="Masukkan teks minimal 3 kata atau pilih gambar untuk dianalisis"></textarea>
                         <span class="input-group-addon btn btn-ha" onclick="toStepTwo()">
                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                         </span>
                     </div>
-                </div>
-                <div class="col-md-offset-3">
-                    <div id="upload-button" class="btn">
-                        <span class="glyphicon glyphicon-camera"> </span> 
-                        <input type="file" id="image-upload" name="image-upload" accept=".png,.jpg,.jpeg,.gif,.tif,.tiff,.bmp" data-max-size="4194304" onchange="uploadImage(); this.value=null; return false;" required />
-                    </div>
-                    <label id="upload-label" for="image-upload">Pilih gambar
-                </div>
                     <div id="ha-dyk" class="alert alert-info ha-dyk" role="alert" style="display: none;">
                         <b>Tahukah Anda?</b><br/>
                             <span id="rotate">Flat earth adalah hoax</span>
@@ -38,6 +27,13 @@
                             <li>Sebanyak 24 satelit dibutuhkan untuk membuat sistem GPS global</li>
                         </ul>
                     </div>
+                </div>
+                <div class="col-md-offset-3" id="image-upload-group">
+                    <div id="upload-button" class="btn">
+                        <span class="glyphicon glyphicon-camera"> </span> 
+                        <input type="file" id="image-upload" name="image-upload" accept=".png,.jpg,.jpeg,.gif,.tif,.tiff,.bmp" data-max-size="4194304" onchange="uploadImage(); this.value=null; return false;" required />
+                    </div>
+                    <label id="upload-label" for="image-upload">Pilih gambar
                 </div>
             </div>
             <div class="row">
@@ -86,7 +82,7 @@
             <br/>
             <span class="ha-segment-subtitle">Menggunakan <i>machine learning</i> untuk mengidentifikasi artikel referensi yang ada di internet dan menjawab teks masukan Anda.</span>
             <br/><br/>
-            <img class="img-responsive" src="../static/img/how-it-works.jpg">
+            <img class="img-responsive" src="/static/img/how-it-works.jpg">
         </div>
         <br/>
         <br/><br/>
@@ -104,15 +100,15 @@
         </div>
         <div class="row ha-segment-row">
             <div class="col-md-4">
-                <img class="photo" src="../static/img/team-03.jpg"/><br/><br/>
+                <img class="photo" src="/static/img/team-03.jpg"/><br/><br/>
                 Tifani Warnita<br/><br/>
             </div>
             <div class="col-md-4">
-                <img class="photo" src="../static/img/team-02.jpg"/><br/><br/>
+                <img class="photo" src="/static/img/team-02.jpg"/><br/><br/>
                 Adinda Budi Kusuma Putra<br/><br/>
             </div>
             <div class="col-md-4">
-                <img class="photo" src="../static/img/team-01.jpg"/><br/><br/>
+                <img class="photo" src="/static/img/team-01.jpg"/><br/><br/>
                 Feryandi Nurdiantoro<br/><br/>
             </div>
         </div>

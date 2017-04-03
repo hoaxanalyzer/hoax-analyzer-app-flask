@@ -36,6 +36,8 @@ h5 {
     filter: alpha(opacity=0);
 }
 
+.ha-ref-domain {overflow-wrap:break-word;}
+
 @media only screen and (max-width: 991px) {
 	.ha-logo {
 		margin-bottom: 15px;

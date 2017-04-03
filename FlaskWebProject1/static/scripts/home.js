@@ -23,7 +23,7 @@ function uploadImage(){
                 alert('Dimensi gambar harus antara 40x40 dan 3200x3200 pixels');
                 return false;
               } else {
-                alert('Gambar berhasil divalidasi');
+                //kirim gambar ke analyzer
               }
             }
           }
@@ -48,10 +48,12 @@ function isInputValid(){
 
 function toStepTwo() {
   if(isInputValid()){
+    $("#image-upload-group").fadeOut().css("display", "none");
     $("#ha-input").fadeOut().css("display", "none");
     $("#ha-dyk").fadeIn().css("display", "block");
     $("#ha-loader").fadeIn().css("display", "block");
     $("#ha-research").fadeIn().css("display", "block");
+
 
     query = $("#hoax-analyzer.ha-main-input").val();
     callAnalyzerAPI(query);
