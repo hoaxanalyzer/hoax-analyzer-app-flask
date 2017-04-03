@@ -23,7 +23,30 @@ function uploadImage(){
                 alert('Dimensi gambar harus antara 40x40 dan 3200x3200 pixels');
                 return false;
               } else {
-                alert('Gambar berhasil divalidasi');
+                $("#ha-input-box").fadeOut().css("display", "none");
+                $("#ha-input").fadeOut().css("display", "none");
+                $("#ha-dyk").fadeIn().css("display", "block");
+                $("#ha-loader").fadeIn().css("display", "block");
+                $("#ha-research").fadeIn().css("display", "block");
+
+                var formData = new FormData();
+                formData.append('image', file); 
+
+                $.ajax({
+                  type: "POST",
+                  url: "https://sh.lelah.ga/analyze/image",
+                  data: formData,
+                  cache: false,
+                  contentType: false,
+                  processData: false,
+                  success: function(result){
+                      data = JSON.parse(result);
+                      window.location = "/results/" + data["id"];
+                  },
+                  failure: function(errMsg) {
+                      alert(errMsg);
+                  }
+                });
               }
             }
           }
