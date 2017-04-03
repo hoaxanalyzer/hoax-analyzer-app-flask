@@ -8,13 +8,13 @@
                     <a href="/"><img src="../static/img/logo.png" width="100px"></a>
                 </div>
                 <div class="col-xs-12 col-md-8 ha-vcenter">
-                        <div id="ha-input">
+                        <div id="ha-input" class="input-group">
                                 <textarea id="hoax-analyzer" class="ha-main-input form-control result">{{result.inputText}}</textarea>
                                 <span class="textbox-button" id="upload-button" data-toggle="tooltip" title="Unggah foto">
                                     <span class="glyphicon glyphicon-camera"> </span> 
                                      <input type="file" id="image-upload" name="image-upload" accept=".png,.jpg,.jpeg,.gif,.tif,.tiff,.bmp" data-max-size="4194304" onchange="uploadImage(); this.value=null; return false;" required />
                                 </span>
-                                <span class="textbox-button" id="search-button" onclick="toStepTwo()">
+                                <span class="input-group-addon btn btn-ha" id="search-button" onclick="toStepTwo()">
                                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                                 </span>
                         </div>
