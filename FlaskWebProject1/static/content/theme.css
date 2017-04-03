@@ -11,6 +11,31 @@ h5 {
     font-size: 14px;
 }
 
+#upload-button {
+    position: relative;
+    overflow: hidden;
+    width: 50px;
+    background-color: #1AA6B7;
+    color: #FFF;
+    margin: 15px 5px 15px 18px;
+}
+#upload-label {
+	font-weight: normal;
+	color: #888;
+	cursor: pointer;
+}
+#upload-button input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
 @media only screen and (max-width: 991px) {
 	.ha-logo {
 		margin-bottom: 15px;
@@ -19,6 +44,7 @@ h5 {
 		text-align: center;
 		margin-top: 5vh;
 		color: #888;
+		font-size: ;
 	}
 	.ha-infoloader {
 		margin-top: 1.5vh;
@@ -322,8 +348,8 @@ h5 {
 .ha-segment-three {
 	padding-top: 10vh;
 	padding-bottom: 10vh;
-	color: #FFF;
-	background-color: #FF3F49;
+	color: #FF3F49;
+	background-color: #FFF;
 	height: 100vh;
 	width: 100vw;
 }
@@ -332,7 +358,7 @@ h5 {
 	padding-top: 10vh;
 	padding-bottom: 10vh;
 	color: #FFF;
-	background-color: #0C3477;
+	background-color: #022D41;
 	height: 100vh;
 	width: 100vw;
 }
@@ -352,4 +378,8 @@ h5 {
 .icon {
 	width: 10vw;
 	height: 10vw;
+}
+
+#hiw {
+	height: auto;
 }
