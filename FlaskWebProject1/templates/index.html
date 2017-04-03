@@ -5,37 +5,46 @@
     <div class="container">
         <div id="ha-analyze" class="narrow-container">
             <div class="row">
-                <div class="col-xs-12 col-md-8 ha-vcenter">
-                    <div id="ha-input" class="input-group">
-                        <textarea id="hoax-analyzer" class="ha-main-input form-control" placeholder="Masukkan teks minimal 3 kata atau pilih gambar untuk dianalisis"></textarea>
-                        <span class="input-group-addon btn btn-ha" onclick="toStepTwo()">
-                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                        </span>
-                    </div>
-                    <div id="ha-dyk" class="alert alert-info ha-dyk" role="alert" style="display: none;">
-                        <b>Tahukah Anda?</b><br/>
-                            <span id="rotate">Flat earth adalah hoax</span>
-                        <ul style="display:none">
-                            <li>Vaksin tidak menyebabkan autisme</li>
-                            <li>Linux dan macOS tidak kebal terhadap virus</li>
-                            <li>Memasukan PIN ATM secara terbalik tidak akan memanggil polisi</li>
-                            <li>Jangan menekan "Who viewed your profile" di Facebook, hal itu adalah penipuan</li>
-                            <li>Anda tidak dapat bunuh diri dengan cara menahan nafas</li>
-                            <li>Hoax makin menyebar dengan cepat dengan bantuan internet</li>
-                            <li>Paracetamol tidak mengandung virus machupo</li>
-                            <li>Madu dalam kondisi ideal tidak pernah membusuk</li>
-                            <li>Sebanyak 24 satelit dibutuhkan untuk membuat sistem GPS global</li>
-                        </ul>
-                    </div>
+                <div class="col-xs-offset-3 col-xs-6 col-sm-offset-3 col-sm-6 col-md-2 col-md-offset-1 ha-logo">
+                    <a href="/"><img src="../static/img/logo.png" width="100px"></a>
                 </div>
-                <div class="col-md-offset-3" id="image-upload-group">
-                    <div id="upload-button" class="btn">
-                        <span class="glyphicon glyphicon-camera"> </span> 
-                        <input type="file" id="image-upload" name="image-upload" accept=".png,.jpg,.jpeg,.gif,.tif,.tiff,.bmp" data-max-size="4194304" onchange="uploadImage(); this.value=null; return false;" required />
+                <div id="ha-dyk" class="col-xs-12 col-md-8 alert alert-info ha-dyk" role="alert" style="display: none;">
+                    <b>Tahukah Anda?</b><br/>
+                        <span id="rotate">Flat earth adalah hoax</span>
+                    <ul style="display:none">
+                        <li>Vaksin tidak menyebabkan autisme</li>
+                        <li>Linux dan macOS tidak kebal terhadap virus</li>
+                        <li>Memasukan PIN ATM secara terbalik tidak akan memanggil polisi</li>
+                        <li>Jangan menekan "Who viewed your profile" di Facebook, hal itu adalah penipuan</li>
+                        <li>Anda tidak dapat bunuh diri dengan cara menahan nafas</li>
+                        <li>Hoax makin menyebar dengan cepat dengan bantuan internet</li>
+                        <li>Paracetamol tidak mengandung virus machupo</li>
+                        <li>Madu dalam kondisi ideal tidak pernah membusuk</li>
+                        <li>Sebanyak 24 satelit dibutuhkan untuk membuat sistem GPS global</li>
+                    </ul>
+                </div>
+                <div id="ha-input-box" class="col-xs-12 col-md-8">
+                    <div class="row">
+                        <div id="ha-input" class="col-md-12">
+                            <textarea id="hoax-analyzer" class="ha-main-input form-control" placeholder="Masukkan teks minimal 3 kata atau pilih gambar untuk dianalisis"></textarea>
+                        </div>
                     </div>
-                    <label id="upload-label" for="image-upload">Pilih gambar
+                    <div class="row" id="button-row">
+                        <div class="col-xs-4" id="image-upload-group">
+                            <div id="upload-button" class="btn" data-toggle="tooltip" title="Unggah foto">
+                                <span class="glyphicon glyphicon-camera"> </span> 
+                                <input type="file" id="image-upload" name="image-upload" accept=".png,.jpg,.jpeg,.gif,.tif,.tiff,.bmp" data-max-size="4194304" onchange="uploadImage(); this.value=null; return false;" required />
+                            </div>
+                        </div>
+                        <div class="col-xs-8">
+                            <div class="col-xs-8 pull-right btn btn-primary" id="search-button" onclick="toStepTwo()">
+                                <span class="glyphicon glyphicon-search"></span> Analisis
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+           
             <div class="row">
                 <div class="col-md-offset-1 col-md-4 ha-loader">
                     <div id="ha-loader" class="row" style="display: none;">
@@ -55,24 +64,11 @@
                     </div>
                 </div>
                 <div class="col-md-6 ha-infos">
-                    <a href="#help"><span class="ha-info-single">Bantuan</span></a> - <a href="#hiw"><span class="ha-info-single">Cara Kerja</span></a> - <a href="#about"><span class="ha-info-single">Tentang Kami</span></a>
+                    <a href="#hiw"><span class="ha-info-single">Cara Kerja</span></a> - <a href="#about"><span class="ha-info-single">Tentang Kami</span></a>
                 </div>
             </div>
+            <a id="down-button" href="#hiw"><i class="glyphicon glyphicon-chevron-down"></i></a>
         </div>
-    </div>
-</div>
-<div id="help" class="ha-segment-two">
-    <div class="container">
-        <div class="ha-segment-upper">
-            <span class="ha-segment-title">Bantuan</span>
-            <br/>
-            <span class="ha-segment-subtitle">Lorem ipsum.</span>
-        </div>
-        <br/>
-        <br/><br/>
-        <center>
-            <a href="#main"><input type="button" class="btn btn-default" value="Kembali ke Aplikasi"></a>
-        </center>
     </div>
 </div>
 <div id="hiw" class="ha-segment-three">
@@ -82,7 +78,7 @@
             <br/>
             <span class="ha-segment-subtitle">Menggunakan <i>machine learning</i> untuk mengidentifikasi artikel referensi yang ada di internet dan menjawab teks masukan Anda.</span>
             <br/><br/>
-            <img class="img-responsive" src="/static/img/how-it-works.jpg">
+            <img class="img-responsive" src="../static/img/how-it-works.jpg">
         </div>
         <br/>
         <br/><br/>
@@ -100,15 +96,15 @@
         </div>
         <div class="row ha-segment-row">
             <div class="col-md-4">
-                <img class="photo" src="/static/img/team-03.jpg"/><br/><br/>
+                <img class="photo" src="../static/img/team-03.jpg"/><br/><br/>
                 Tifani Warnita<br/><br/>
             </div>
             <div class="col-md-4">
-                <img class="photo" src="/static/img/team-02.jpg"/><br/><br/>
+                <img class="photo" src="../static/img/team-02.jpg"/><br/><br/>
                 Adinda Budi Kusuma Putra<br/><br/>
             </div>
             <div class="col-md-4">
-                <img class="photo" src="/static/img/team-01.jpg"/><br/><br/>
+                <img class="photo" src="../static/img/team-01.jpg"/><br/><br/>
                 Feryandi Nurdiantoro<br/><br/>
             </div>
         </div>

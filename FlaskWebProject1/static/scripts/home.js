@@ -23,7 +23,7 @@ function uploadImage(){
                 alert('Dimensi gambar harus antara 40x40 dan 3200x3200 pixels');
                 return false;
               } else {
-                //kirim gambar ke analyzer
+                alert('Gambar berhasil divalidasi');
               }
             }
           }
@@ -48,7 +48,7 @@ function isInputValid(){
 
 function toStepTwo() {
   if(isInputValid()){
-    $("#image-upload-group").fadeOut().css("display", "none");
+    $("#ha-input-box").fadeOut().css("display", "none");
     $("#ha-input").fadeOut().css("display", "none");
     $("#ha-dyk").fadeIn().css("display", "block");
     $("#ha-loader").fadeIn().css("display", "block");
