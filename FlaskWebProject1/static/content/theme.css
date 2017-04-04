@@ -21,24 +21,26 @@ h5 {
 
 .textbox-button {
 	position: absolute;
-	top: 26px;
+	top: 50%;
+	transform: translateY(-50%);
 	color: #888;
 	cursor: pointer;
 	z-index: 999;
+	margin: auto;
 }
 .textbox-button:hover {
 	color: #1794A5;
 }
 
 #upload-button.textbox-button {
-	right: 73px;
+	right: 65px;
 	overflow: hidden;
 }
-/*#search-button.textbox-button {
+#search-button.textbox-button {
 	right: 43px;
-}*/
+}
 #hoax-analyzer.result {
-	padding-right: 50px;
+	padding-right: 40px;
 }
 
 #ha-input-box #upload-button {
@@ -48,8 +50,15 @@ h5 {
     background-color: #1AA6B7;
     color: #FFF;
 }
+#upload-label {
+	font-weight: normal;
+	color: #888;
+	cursor: pointer;
+}
 input[type="file"] {
     position: absolute;
+    /*width: 0.1px;*/
+    /*height: 0.1px;*/
     top: 0;
     right: 0;
     margin: 0;
@@ -61,6 +70,8 @@ input[type="file"] {
 }
 
 #down-button {
+	/*border: 3px solid #888;*/
+	/*border-radius: 50px;*/
 	color: #FE424D;
 	font-size: 36px;
 	position: absolute;
@@ -68,14 +79,22 @@ input[type="file"] {
 	left: 50%;
 	transition: 0.3s;
 	webkit-transition: 0.3s;
+	/*background-color: rgb(245,245,245);*/
+	/*padding: 10px;*/
 }
-
 #down-button:hover {
 	transform: scale(1.2,1.2);
 }
 
 .ha-ref-domain {overflow-wrap:break-word;}
 
+/*.input-group-addon {
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	background-color: #fff;
+}
+*/
 @media only screen and (max-width: 991px) {
 	.ha-logo {
 		margin-bottom: 15px;
@@ -108,6 +127,13 @@ input[type="file"] {
 	}
 	.ha-segment-subtitle {
 		font-size: 12px;
+	}
+
+	#upload-button.textbox-button {
+		right: 55px;
+	}
+	#hoax-analyzer.result {
+		padding-right: 35px;
 	}
 }
 
