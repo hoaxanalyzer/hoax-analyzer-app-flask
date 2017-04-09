@@ -8,13 +8,13 @@
                     <a href="/"><img src="../static/img/logo.png" width="100px"></a>
                 </div>
                 <div class="col-xs-12 col-md-8 ha-vcenter">
-                        <div id="ha-input">
+                        <div id="ha-input" class="input-group">
                                 <textarea id="hoax-analyzer" class="ha-main-input form-control result">{{result.inputText}}</textarea>
                                 <span class="textbox-button" id="upload-button" data-toggle="tooltip" title="Unggah foto">
                                     <span class="glyphicon glyphicon-camera"> </span> 
                                      <input type="file" id="image-upload" name="image-upload" accept=".png,.jpg,.jpeg,.gif,.tif,.tiff,.bmp" data-max-size="4194304" onchange="uploadImage(); this.value=null; return false;" required />
                                 </span>
-                                <span class="textbox-button" id="search-button" onclick="toStepTwo()">
+                                <span class="input-group-addon btn btn-ha" id="search-button" onclick="toStepTwo()">
                                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                                 </span>
                         </div>
@@ -98,73 +98,71 @@
 										<div class="col-md-12">
 												<h3>Referensi</h3>
 										</div>
-										{% set i = 1 %}
 										{% for reference in result.references %}
-										<div class="row col-md-12 ha-reference">
-												<div class="col-md-12">
-														<center><div class="ha-reference-separator"></div></center>
-												</div>
-												<div class="col-md-9" style="overflow: hidden;">
-													<a class="a-hidden" href="{{reference.url}}" target="_blank">
-														<span class="ha-ref-title">{{reference.url_base}}</span>
-														<br/>
-														<span class="ha-ref-content">{{reference.text[:180]}}...</span>
-														<br/>
-														<span class="ha-ref-domain">{{reference.url}}</span>
-													</a>
-												</div>
-												<div class="col-md-3 ha-reference-label">
-														<span class="ha-reference-identify {{reference.label}}">{{reference.label}}</span><br/><br/>
-														Salah? <a data-id="{i}" data-toggle='modal' data-target="#reference-feedback-modal-{{i}}"><i>Berikan feedback</i></a>
-												</div>
-										</div>
-										<!-- Feedback Reference -->
-										<div id='reference-feedback-modal-{{i}}' data-id="{{i}}" class='modal fade' role='dialog'>
-											<div class='modal-dialog'>
-													<div class='modal-content reference-feedback-modal'>
-															<div class='modal-header'>
-																	<button type='button' class='close' data-dismiss='modal'>&times;</button>
-																	<h4 class='modal-title'><strong>Feedback Referensi</strong></h4>
-															</div>
-															<div class='modal-body'>
-																		<div class='row'>
-																			<div class='col-md-6 feedback-optional-text'>
-																					<h5 style='display: inline;'><strong>Teks Referensi</strong></h5>
-																					<a class='pull-right source-link' target='_blank' href="{{reference.url}}">Sumber</a>
-																					<p class='well reference-text'>{{reference.text}}</p>
-																			</div>
-																			<div class='col-md-6'>
-																					<center>
-																							<p><strong>Apakah referensi relevan dengan teks masukan?</strong></p>
-																							<label class='radio-inline' for='radios-4'>
-																									<input name='relevant-radios' class='radios-4' value='Relevant' type='radio'>Relevan
-																							</label> 
-																							<label class='radio-inline' for='radios-5'>
-																									<input name='relevant-radios' class='radios-5' value='Not Relevant' checked='checked' type='radio'>Tidak Relevan
-																							</label><br/>
-																							<div class='reference-label-question' style='display: none'>
-																									<br/>
-																									<p><strong>Apa yang disimpulkan dari teks tersebut?</strong></p>
-																									<label class='radio-inline' for='radios-6'>
-																											<input name='reference-label-radios' id='radios-6' value='Fact' checked='checked' type='radio'>Fakta
-																									</label> 
-																									<label class='radio-inline' for='radios-7'>
-																											<input name='reference-label-radios' id='radios-7' value='Hoax' type='radio'>Hoax
-																									</label>
-																									<label class='radio-inline' for='radios-7'>
-																											<input name='reference-label-radios' id='radios-8' value='Uknown' type='radio'>Tidak ada
-																									</label>
-																									<textarea id='feedback' class='form-control textarea searchinput reference-feedback-reason' name='reference-feedback-reason' rows='2' placeholder='Tell us the reason (optional)'></textarea>
-																							</div>
-																							<button id='feedback' type='button' data-id="{{reference.id}}" class='btn btn-default btn-sm reference-feedback-button'>Kirim</button>
-																					</center>
-																			</div>
-																	</div>
-															</div>
+											<div class="row col-md-12 ha-reference">
+													<div class="col-md-12">
+															<center><div class="ha-reference-separator"></div></center>
+													</div>
+													<div class="col-md-9" style="overflow: hidden;">
+														<a class="a-hidden" href="{{reference.url}}" target="_blank">
+															<span class="ha-ref-title">{{reference.url_base}}</span>
+															<br/>
+															<span class="ha-ref-content">{{reference.text[:180]}}...</span>
+															<br/>
+															<span class="ha-ref-domain">{{reference.url}}</span>
+														</a>
+													</div>
+													<div class="col-md-3 ha-reference-label">
+															<span class="ha-reference-identify {{reference.label}}">{{reference.label}}</span><br/><br/>
+															Salah? <a data-id="{{loop.index}}" data-toggle='modal' data-target="#reference-feedback-modal-{{loop.index}}"><i>Berikan feedback</i></a>
 													</div>
 											</div>
-										</div>
-										{% set i = i + 1 %}         
+											<!-- Feedback Reference -->
+											<div id='reference-feedback-modal-{{loop.index}}' data-id="{{loop.index}}" class='modal fade' role='dialog'>
+												<div class='modal-dialog'>
+														<div class='modal-content reference-feedback-modal'>
+																<div class='modal-header'>
+																		<button type='button' class='close' data-dismiss='modal'>&times;</button>
+																		<h4 class='modal-title'><strong>Feedback Referensi</strong></h4>
+																</div>
+																<div class='modal-body'>
+																			<div class='row'>
+																				<div class='col-md-6 feedback-optional-text'>
+																						<h5 style='display: inline;'><strong>Teks Referensi</strong></h5>
+																						<a class='pull-right source-link' target='_blank' href="{{reference.url}}">Sumber</a>
+																						<p class='well reference-text'>{{reference.text}}</p>
+																				</div>
+																				<div class='col-md-6'>
+																						<center>
+																								<p><strong>Apakah referensi relevan dengan teks masukan?</strong></p>
+																								<label class='radio-inline' for='radios-4'>
+																										<input name='relevant-radios' class='radios-4' value='Relevant' type='radio'>Relevan
+																								</label> 
+																								<label class='radio-inline' for='radios-5'>
+																										<input name='relevant-radios' class='radios-5' value='Not Relevant' checked='checked' type='radio'>Tidak Relevan
+																								</label><br/>
+																								<div class='reference-label-question' style='display: none'>
+																										<br/>
+																										<p><strong>Apa yang disimpulkan dari teks tersebut?</strong></p>
+																										<label class='radio-inline' for='radios-6'>
+																												<input name='reference-label-radios' id='radios-6' value='Fact' checked='checked' type='radio'>Fakta
+																										</label> 
+																										<label class='radio-inline' for='radios-7'>
+																												<input name='reference-label-radios' id='radios-7' value='Hoax' type='radio'>Hoax
+																										</label>
+																										<label class='radio-inline' for='radios-7'>
+																												<input name='reference-label-radios' id='radios-8' value='Uknown' type='radio'>Tidak ada
+																										</label>
+																										<textarea id='feedback' class='form-control textarea searchinput reference-feedback-reason' name='reference-feedback-reason' rows='2' placeholder='Tell us the reason (optional)'></textarea>
+																								</div>
+																								<button id='feedback' type='button' data-id="{{reference.id}}" class='btn btn-default btn-sm reference-feedback-button'>Kirim</button>
+																						</center>
+																				</div>
+																		</div>
+																</div>
+														</div>
+												</div>
+											</div>    
 										{% endfor %}
 								</div>
 						</div>
