@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div id="main" class="ha-segment-one">
+    <div class="container">
+        <div id="ha-analyze" class="narrow-container">
+            <div class="row">
+                <center>
+                    <a href="/"><img src="../static/img/logo.png" width="160em"></a>
+                    <br/>
+                    <h1><strong>Mohon Maaf</strong></h1>
+                    <p style="font-size: 1em;">Terima kasih atas antusiasmenya, tetapi kami belum siap menangani banyak pengunjung. Selain itu, kami sedang terus melakukan pengembangan agar meningkatkan akurasi untuk dapat berkompetisi di Final South East Asia dengan lebih siap lagi.</p>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+    <script src="/static/scripts/rotate.js"></script>
+    <script type="text/javascript">
+        $("[data-toggle=popover]").popover({html:true});
+    </script>
+    <script src="/static/scripts/home.js"></script>
+{% endblock %}
+
+
