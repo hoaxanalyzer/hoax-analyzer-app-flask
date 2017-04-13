@@ -47,7 +47,7 @@ def feedbackResult():
             data = request.json
             data["ip"] = _get_user_ip(request)
             data["browser"] = request.headers.get('User-Agent')
-            url = "https://sh.lelah.ga/feedback/result"
+            url = "https://hprimary.lelah.ga/feedback/result"
             req = urllib2.Request(url, json.dumps(data), {'Content-Type': 'application/json'})
             f = urllib2.urlopen(req)
             response = f.read()
