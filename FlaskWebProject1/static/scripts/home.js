@@ -34,7 +34,7 @@ function uploadImage(){
 
                 $.ajax({
                   type: "POST",
-                  url: "https://sh.lelah.ga/analyze/image",
+                  url: "https://hprimary.lelah.ga/analyze/image",
                   data: formData,
                   cache: false,
                   contentType: false,
@@ -88,7 +88,7 @@ function toStepTwo() {
 function callAnalyzerAPI(q) {
   $.ajax({
     type: "POST",
-    url: "https://sh.lelah.ga/analyze",
+    url: "https://hprimary.lelah.ga/analyze",
     data: JSON.stringify({query: q}),
     contentType: "application/json; charset=utf-8",
     dataType: "json",

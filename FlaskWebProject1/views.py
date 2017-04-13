@@ -16,7 +16,7 @@ def home():
 def result(id):
     """Renders the result page."""
     try:
-        url = "https://sh.lelah.ga/result"
+        url = "https://hprimary.lelah.ga/result"
         data = json.dumps({'id':id})
         req = urllib2.Request(url, data, {'Content-Type': 'application/json'})
         f = urllib2.urlopen(req)
@@ -63,7 +63,7 @@ def feedbackReference():
             data = request.json
             data["ip"] = _get_user_ip(request)
             data["browser"] = request.headers.get('User-Agent')
-            url = "https://sh.lelah.ga/feedback/reference"
+            url = "https://hprimary.lelah.ga/feedback/reference"
             req = urllib2.Request(url, json.dumps(data), {'Content-Type': 'application/json'})
             f = urllib2.urlopen(req)
             response = f.read()
