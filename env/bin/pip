@@ -1,4 +1,4 @@
-#!/Users/adindabudi/Sites/cimol/FlaskAzure/env/bin/python2.7
+#!/Users/adindabudi/Sites/hoax-analyzer-app-flask/env/bin/python2.7
 
 # -*- coding: utf-8 -*-
 import re

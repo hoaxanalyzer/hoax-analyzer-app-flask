@@ -87,5 +87,10 @@ def _get_user_ip(request):
     return ip
 
 @app.errorhandler(404)
-def page_not_found(e):
+def page_not_found(error):
+    app.logger.error('Page not found: %s', (request.path, error))
     return render_template('404.html'), 404
+
+@app.errorhandler(500)
+def internal_server_error(error):
+    app.logger.error('Server Error: %s', (error))
