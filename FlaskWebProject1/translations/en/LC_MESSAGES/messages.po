@@ -1,0 +1,200 @@
+# English translations for PROJECT.
+# Copyright (C) 2017 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-04-16 00:29+0700\n"
+"PO-Revision-Date: 2017-04-15 23:29+0700\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: templates/404.html:4
+msgid "Page not found title"
+msgstr "Page Not Found"
+
+#: templates/404.html:5
+msgid "Page not found message"
+msgstr "What you were looking for is just not there."
+
+#: templates/404.html:6
+msgid "Go to the home page"
+msgstr "Go to home page"
+
+#: templates/index.html:12 templates/result.html:24
+msgid "Did you know"
+msgstr "Did you know?"
+
+#: templates/index.html:13 templates/result.html:25
+msgid "Quotes #1"
+msgstr "Flat earth is a hoax"
+
+#: templates/index.html:15 templates/result.html:27
+msgid "Quotes #2"
+msgstr "Vaccine doesn't causing autism"
+
+#: templates/index.html:16 templates/result.html:28
+msgid "Quotes #3"
+msgstr "Linux and macOS are not immune to malware"
+
+#: templates/index.html:17 templates/result.html:29
+msgid "Quotes #4"
+msgstr "Entering your PIN on ATM doesn't notify the police"
+
+#: templates/index.html:18 templates/result.html:30
+msgid "Quotes #5"
+msgstr "Don't click 'Who viewed your profile' in Facebook, it's a scam"
+
+#: templates/index.html:19 templates/result.html:31
+msgid "Quotes #6"
+msgstr "You can’t kill yourself by holding your breath"
+
+#: templates/index.html:20 templates/result.html:32
+msgid "Quotes #7"
+msgstr "Hoaxes are more spreading than ever with help of internet"
+
+#: templates/index.html:21 templates/result.html:33
+msgid "Quotes #8"
+msgstr "Paracetamol doesn't contains machupo virus"
+
+#: templates/index.html:22 templates/result.html:34
+msgid "Quotes #9"
+msgstr "Honey is the natural food which never spoils"
+
+#: templates/index.html:23 templates/result.html:35
+msgid "Quotes #10"
+msgstr "We need minimum 24 satellites in order to create worldwide functional GPS"
+
+#: templates/index.html:29
+msgid "Input text placeholder"
+msgstr "Type text (min. 3 words) here"
+
+#: templates/index.html:62 templates/result.html:52
+msgid "Analyzing"
+msgstr "Analyzing..."
+
+#: templates/index.html:67
+msgid "How it works"
+msgstr "How it works"
+
+#: templates/index.html:67 templates/index.html:93
+msgid "About us"
+msgstr "About us"
+
+#: templates/index.html:70
+msgid "Analyze"
+msgstr "Analyze"
+
+#: templates/index.html:77
+msgid "How it works title"
+msgstr "How this application works?"
+
+#: templates/index.html:79
+msgid "How it works subtitle"
+msgstr "Use machine learning to identify reference articles in the internet and answer your text input."
+
+#: templates/index.html:95
+msgid "About us subtitle"
+msgstr "We are student of Informatic Engineering and Information System & Technology from Institut Teknologi Bandung who want to help solving the <i>hoax</i> problem"
+
+#: templates/index.html:114
+msgid "Back to application"
+msgstr "Back to application"
+
+#: templates/result.html:72
+msgid "Wrong result"
+msgstr "Wrong result?"
+
+#: templates/result.html:72 templates/result.html:117
+msgid "Give feedback"
+msgstr "Give feedback"
+
+#: templates/result.html:76
+msgid "Disclaimer title"
+msgstr "Disclaimer"
+
+#: templates/result.html:77
+msgid "Disclaimer message"
+msgstr "The calculations for the Hoax Probability are based on the cross-checking of the top results from search engines. Please check the articles in the references to ensure whether the Hoax Probability is correct."
+
+#: templates/result.html:84
+msgid "Share"
+msgstr "Share"
+
+#: templates/result.html:99
+msgid "Reference"
+msgstr "References"
+
+#: templates/result.html:117
+msgid "Wrong reference"
+msgstr "Wrong?"
+
+#: templates/result.html:126
+msgid "Reference feedback title"
+msgstr "Reference Feedback"
+
+#: templates/result.html:131
+msgid "Reference text"
+msgstr "Reference text"
+
+#: templates/result.html:132
+msgid "Source"
+msgstr "Source"
+
+#: templates/result.html:137
+msgid "Reference feedback relevant question"
+msgstr "Is the reference relevant to the text input?"
+
+#: templates/result.html:139
+msgid "Relevant"
+msgstr "Relevant"
+
+#: templates/result.html:142
+msgid "Not relevant"
+msgstr "Not relevant"
+
+#: templates/result.html:146
+msgid "Reference feedback conclusion question"
+msgstr "What does the reference say about the text?"
+
+#: templates/result.html:148 templates/result.html:185
+msgid "Fact"
+msgstr "Fact"
+
+#: templates/result.html:151 templates/result.html:188
+msgid "Hoax"
+msgstr "Hoax"
+
+#: templates/result.html:154
+msgid "Unknown"
+msgstr "Unknown"
+
+#: templates/result.html:156 templates/result.html:196
+msgid "Tell us reason"
+msgstr "Tell us the reason (optional)"
+
+#: templates/result.html:158 templates/result.html:198
+msgid "Send"
+msgstr "Send"
+
+#: templates/result.html:179
+msgid "Result feedback title"
+msgstr "Analysis Result Feedback"
+
+#: templates/result.html:183
+msgid "Result feedback question"
+msgstr "What should it be?"
+
+#: templates/result.html:191
+msgid "Dont know"
+msgstr "Don't know"
+

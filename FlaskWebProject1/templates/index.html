@@ -9,24 +9,24 @@
                     <a href="/"><img src="../static/img/logo.png" width="100px"></a>
                 </div>
                 <div id="ha-dyk" class="col-xs-12 col-md-8 alert alert-info ha-dyk" role="alert" style="display: none;">
-                    <b>Tahukah Anda?</b><br/>
-                        <span id="rotate">Flat earth adalah hoax</span>
+                    <b>{{ _('Did you know') }}</b><br/>
+                        <span id="rotate">{{ _('Quotes #1') }}</span>
                     <ul style="display:none">
-                        <li>Vaksin tidak menyebabkan autisme</li>
-                        <li>Linux dan macOS tidak kebal terhadap virus</li>
-                        <li>Memasukan PIN ATM secara terbalik tidak akan memanggil polisi</li>
-                        <li>Jangan menekan "Who viewed your profile" di Facebook, hal itu adalah penipuan</li>
-                        <li>Anda tidak dapat bunuh diri dengan cara menahan nafas</li>
-                        <li>Hoax makin menyebar dengan cepat dengan bantuan internet</li>
-                        <li>Paracetamol tidak mengandung virus machupo</li>
-                        <li>Madu dalam kondisi ideal tidak pernah membusuk</li>
-                        <li>Sebanyak 24 satelit dibutuhkan untuk membuat sistem GPS global</li>
+                        <li>{{ _('Quotes #2') }}</li>
+                        <li>{{ _('Quotes #3') }}</li>
+                        <li>{{ _('Quotes #4') }}</li>
+                        <li>{{ _('Quotes #5') }}</li>
+                        <li>{{ _('Quotes #6') }}</li>
+                        <li>{{ _('Quotes #7') }}</li>
+                        <li>{{ _('Quotes #8') }}</li>
+                        <li>{{ _('Quotes #9') }}</li>
+                        <li>{{ _('Quotes #10') }}</li>
                     </ul>
                 </div>
                 <div id="ha-input-box" class="col-xs-12 col-md-8">
                     <div class="row">
                         <div id="ha-input" class="col-md-12">
-                            <textarea id="hoax-analyzer" class="ha-main-input form-control" placeholder="Masukkan teks minimal 3 kata atau pilih gambar untuk dianalisis"></textarea>
+                            <textarea id="hoax-analyzer" class="ha-main-input form-control" placeholder="{{ _('Input text placeholder') }}"></textarea>
                         </div>
                     </div>
                     <div class="row" id="button-row">
@@ -38,7 +38,7 @@
                         </div>
                         <div class="col-xs-8">
                             <div class="col-xs-8 pull-right btn btn-primary" id="search-button" onclick="toStepTwo()">
-                                <span class="glyphicon glyphicon-search"></span> Analisis
+                                <span class="glyphicon glyphicon-search"></span> {{ _('Analyze') }}
                             </div>
                         </div>
                     </div>
@@ -59,12 +59,12 @@
                             </div>
                         </div>
                         <div class="col-md-6 ha-infoloader">
-                            Menganalisis...
+                            {{ _('Analyzing') }}
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 ha-infos">
-                    <a href="#hiw"><span class="ha-info-single">Cara Kerja</span></a> - <a href="#about"><span class="ha-info-single">Tentang Kami</span></a>
+                    <a href="#hiw"><span class="ha-info-single">{{ _('How it works') }}</span></a> - <a href="#about"><span class="ha-info-single">{{ _('About us') }}</span></a>
                 </div>
             </div>
             <a id="down-button" href="#hiw"><i class="glyphicon glyphicon-chevron-down"></i></a>
@@ -74,25 +74,25 @@
 <div id="hiw" class="ha-segment-three">
     <div class="container">
         <div class="ha-segment-upper">
-            <span class="ha-segment-title">Bagaimana cara aplikasi ini bekerja?</span>
+            <span class="ha-segment-title">{{ _('How it works title') }}</span>
             <br/>
-            <span class="ha-segment-subtitle">Menggunakan <i>machine learning</i> untuk mengidentifikasi artikel referensi yang ada di internet dan menjawab teks masukan Anda.</span>
+            <span class="ha-segment-subtitle">{{ _('How it works subtitle') }}</span>
             <br/><br/>
             <img class="img-responsive" src="/static/img/how-it-works.jpg">
         </div>
         <br/>
         <br/><br/>
         <center>
-            <a href="#main"><input type="button" class="btn btn-default" value="Kembali ke Aplikasi"></a>
+            <a href="#main"><input type="button" class="btn btn-default" value="{{ _('Back to application') }}"></a>
         </center>
     </div>
 </div>
 <div id="about" class="ha-segment-four">
     <div class="container">
         <div class="ha-segment-upper">
-            <span class="ha-segment-title">Tentang Kami</span>
+            <span class="ha-segment-title">{{ _('About us') }}</span>
             <br/>
-            <span class="ha-segment-subtitle">Kami adalah mahasiswa Teknik Informatika dan Sistem dan Teknologi Informasi dari Institut Teknologi Bandung yang ingin membantu memecahkan masalah <i>hoax</i></span>
+            <span class="ha-segment-subtitle">{{ _('About us subtitle') }}</span>
         </div>
         <div class="row ha-segment-row">
             <div class="col-md-4">
@@ -111,7 +111,7 @@
         <div class="row ha-segment-row">
             <div class="col-md-12">
                 <center>
-                    <a href="#main"><input type="button" class="btn btn-default" value="Kembali ke Aplikasi"></a>
+                    <a href="#main"><input type="button" class="btn btn-default" value="{{ _('Back to application') }}"></a>
                 </center>                       
             </div>
         </div>

@@ -2,10 +2,17 @@
 Routes and views for the flask application.
 """
 
-from flask import render_template, request
-from FlaskWebProject1 import app
-import json
-import urllib2
+from flask import render_template, request, session
+from FlaskWebProject1 import app, babel
+from flask_babel import gettext
+import json, urllib2
+
+# Babel config
+SUPPORTED_LANGUAGES = {'id': 'Bahasa', 'en': 'English'}
+
+@babel.localeselector
+def get_locale():
+    return request.accept_languages.best_match(SUPPORTED_LANGUAGES.keys())
 
 @app.route('/')
 def home():
@@ -82,4 +89,3 @@ def _get_user_ip(request):
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
-
